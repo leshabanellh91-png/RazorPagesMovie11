@@ -28,4 +28,8 @@ public class Movie
     [StringLength(5)]
     [Required]
     public string Rating { get; set; } = string.Empty;
+
+    public int DirectorId { get; set; }
+    public Director? Director { get; set; }
+
 }
