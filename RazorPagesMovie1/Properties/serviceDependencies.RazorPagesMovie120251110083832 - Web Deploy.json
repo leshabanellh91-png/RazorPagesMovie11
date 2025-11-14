@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('serviceConnectorResourceGroupName')]/providers/Microsoft.Web/sites/RazorPagesMovie120251110083832/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsRazorPagesMovie1Context_FA84666753",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/razorpagesmovie1dbserver/databases/RazorPagesMovie1_db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:RazorPagesMovie1Context",
+      "dynamicId": null
+    }
+  }
+}
