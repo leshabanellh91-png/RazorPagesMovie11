@@ -1,56 +1,60 @@
 ﻿@page
 @model RazorPagesMovie1.Pages.Movies.EditModel
+
 @{
-    ViewData["Title"] = "Edit Movie";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Edit Movie</h1>
+<h1>Edit</h1>
 
-<form method="post">
-    <!-- Same fields as Create -->
-    <div class="form-group">
-        <label asp-for="Movie.Title"></label>
-        <input asp-for="Movie.Title" class="form-control" />
-        <span asp-validation-for="Movie.Title" class="text-danger"></span>
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Movie.Id" />
+            <div class="form-group">
+                
+                <label asp-for="Movie.Title" class="control-label"></label>
+                <input asp-for="Movie.Title" class="form-control" />
+                <span asp-validation-for="Movie.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Movie.ReleaseDate" class="control-label"></label>
+                <input asp-for="Movie.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Movie.Genre" class="control-label"></label>
+                <input asp-for="Movie.Genre" class="form-control" />
+                <span asp-validation-for="Movie.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Movie.Price" class="control-label"></label>
+                <input asp-for="Movie.Price" class="form-control" />
+                <span asp-validation-for="Movie.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="Movie.Rating" class="control-label"></label>
+                <input asp-for="Movie.Rating" class="form-control" />
+                <span asp-validation-for="Movie.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
+</div>
 
-    <div class="form-group">
-        <label asp-for="Movie.Genre"></label>
-        <input asp-for="Movie.Genre" class="form-control" />
-        <span asp-validation-for="Movie.Genre" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Movie.ReleaseDate"></label>
-        <input asp-for="Movie.ReleaseDate" class="form-control" type="date" />
-        <span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Movie.Price"></label>
-        <input asp-for="Movie.Price" class="form-control" />
-        <span asp-validation-for="Movie.Price" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Movie.Rating"></label>
-        <input asp-for="Movie.Rating" class="form-control" />
-        <span asp-validation-for="Movie.Rating" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label>Director</label>
-        <select asp-for="Movie.DirectorId" asp-items="Model.DirectorList" class="form-control"></select>
-    </div>
-
-    <div class="form-group">
-        <label>Actor</label>
-        <select asp-for="Movie.ActorId" asp-items="Model.ActorList" class="form-control"></select>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Save</button>
-</form>
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

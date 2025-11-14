@@ -19,17 +19,17 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var movie in Model.Movies)
-        {
-            <tr>
-                <td>@movie.Title</td>
-                <td>@movie.Genre</td>
-                <td>@movie.ReleaseDate.ToString("yyyy-MM-dd")</td>
-                <td>@movie.Price.ToString("C")</td>
-                <td>@movie.Rating</td>
-                <td>@movie.Director?.Name</td>
-                <td>@movie.Actor?.FirstName @movie.Actor?.LastName</td>
-            </tr>
-        }
+@foreach (var movie in Model.Movies)
+{
+    <tr>
+        <td>@movie.Title</td>
+        <td>@movie.Genre</td>
+        <td>@movie.ReleaseDate.ToString("yyyy-MM-dd")</td>
+        <td>@movie.Price.ToString("C")</td>
+        <td>@movie.Rating</td>
+        <td>@movie.Director?.Name</td>
+        <td>@movie.Actor?.FirstName @movie.Actor?.LastName</td>
+    </tr>
+}
     </tbody>
 </table>
