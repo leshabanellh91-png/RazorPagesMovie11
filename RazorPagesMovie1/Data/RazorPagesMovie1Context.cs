@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Models;
+using RazorPagesMovie1.Models;
 
 namespace RazorPagesMovie1.Data
 {
@@ -14,8 +15,12 @@ namespace RazorPagesMovie1.Data
         {
         }
 
-        public DbSet<RazorPagesMovie.Models.Movie> Movie { get; set; } = default!;
-        public DbSet<Director> Director { get; set; } = default!;
+        public DbSet<Director> Director { get; set; }
+        public DbSet<Movie> Movie { get; set; }
+        public DbSet<Actor> Actors { get; set; }
+        
+
+
 
     }
 }

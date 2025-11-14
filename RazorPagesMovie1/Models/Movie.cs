@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RazorPagesMovie1.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RazorPagesMovie.Models;
@@ -32,4 +33,7 @@ public class Movie
     public int DirectorId { get; set; }
     public Director? Director { get; set; }
 
+    // Add Actor reference
+    public int ActorId { get; set; }
+    public Actor? Actor { get; set; }
 }

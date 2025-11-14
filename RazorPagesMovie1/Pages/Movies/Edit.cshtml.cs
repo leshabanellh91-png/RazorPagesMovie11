@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Models;
 using RazorPagesMovie1.Data;
+using RazorPagesMovie1.Models;
 
 namespace RazorPagesMovie1.Pages.Movies
 {
     public class EditModel : PageModel
     {
-        private readonly RazorPagesMovie1.Data.RazorPagesMovie1Context _context;
+        private readonly RazorPagesMovie1Context _context;
 
-        public EditModel(RazorPagesMovie1.Data.RazorPagesMovie1Context context)
+        public EditModel(RazorPagesMovie1Context context)
         {
             _context = context;
         }
@@ -23,55 +20,33 @@ namespace RazorPagesMovie1.Pages.Movies
         [BindProperty]
         public Movie Movie { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        public SelectList DirectorList { get; set; } = default!;
+        public SelectList ActorList { get; set; } = default!;
 
-            var movie =  await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
-            {
-                return NotFound();
-            }
-            Movie = movie;
+        public async Task<IActionResult> OnGetAsync(int id)
+        {
+            Movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
+            if (Movie == null) return NotFound();
+
+            DirectorList = new SelectList(await _context.Director.ToListAsync(), "Id", "Name", Movie.DirectorId);
+            ActorList = new SelectList(await _context.Actors.ToListAsync(), "Id", "FirstName", Movie.ActorId);
+
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                DirectorList = new SelectList(await _context.Director.ToListAsync(), "Id", "Name", Movie.DirectorId);
+                ActorList = new SelectList(await _context.Actors.ToListAsync(), "Id", "FirstName", Movie.ActorId);
                 return Page();
             }
 
             _context.Attach(Movie).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MovieExists(Movie.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
-        }
-
-        private bool MovieExists(int id)
-        {
-            return _context.Movie.Any(e => e.Id == id);
         }
     }
 }
