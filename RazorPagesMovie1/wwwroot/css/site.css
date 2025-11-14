@@ -1,15 +1,126 @@
-.movie-card {
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform .15s ease, box-shadow .15s ease;
+/* ---------------- Body and Overall ---------------- */
+body {
+    background-color: #f4f6f8; /* light gray-blue background */
+    color: #333333; /* dark text for readability */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-    .movie-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+/* ---------------- Header / Navigation ---------------- */
+header, nav {
+    background-color: #004080; /* dark blue */
+    color: #ffffff;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+    header h1 {
+        margin: 0;
+        font-size: 28px;
     }
 
-.movie-img {
-    height: 180px;
-    object-fit: cover;
+    /* Navigation links */
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+    }
+
+        nav a:hover {
+            color: #ffcc00; /* gold hover */
+        }
+
+/* ---------------- Buttons ---------------- */
+button, .btn {
+    background-color: #008CBA; /* bright blue */
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    button:hover, .btn:hover {
+        background-color: #005f73; /* darker blue on hover */
+    }
+
+/* ---------------- Forms ---------------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    select:focus,
+    textarea:focus {
+        border-color: #008CBA;
+        outline: none;
+    }
+
+/* ---------------- Tables ---------------- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    table th {
+        background-color: #004080;
+        color: white;
+        padding: 10px;
+        text-align: left;
+    }
+
+    table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+        background-color: #e6f2ff; /* light blue hover */
+    }
+
+/* ---------------- Alerts / Messages ---------------- */
+.alert {
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
