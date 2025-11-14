@@ -49,6 +49,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapFallbackToPage("/Index");
+
+
 app.MapRazorPages();
 
 app.Run();

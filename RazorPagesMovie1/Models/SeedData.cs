@@ -60,12 +60,12 @@ namespace RazorPagesMovie1.Models
                     var jamie = context.Actors.First(a => a.FirstName == "Jamie" && a.LastName == "Foxx");
 
                     context.Movie.AddRange(
-                        new Movie { Title = "When Harry Met Sally", ReleaseDate = new DateTime(1989, 2, 12), Genre = "Romantic Comedy", Price = 7.99M, DirectorId = robReiner.Id, ActorId = meg.Id },
-                        new Movie { Title = "Inception", ReleaseDate = new DateTime(2010, 7, 16), Genre = "Sci-Fi", Price = 9.99M, DirectorId = moriswiSimon.Id, ActorId = leo.Id },
-                        new Movie { Title = "E.T. the Extra-Terrestrial", ReleaseDate = new DateTime(1982, 6, 11), Genre = "Science Fiction", Price = 7.99M, DirectorId = leratoLee.Id, ActorId = meg.Id },
-                        new Movie { Title = "Interstellar", ReleaseDate = new DateTime(2014, 11, 7), Genre = "Science Fiction", Price = 12.99M, DirectorId = lucyMmasa.Id, ActorId = matthew.Id },
-                        new Movie { Title = "Pulp Fiction", ReleaseDate = new DateTime(1994, 10, 14), Genre = "Crime", Price = 8.99M, DirectorId = mphoNkuna.Id, ActorId = samuel.Id },
-                        new Movie { Title = "Django Unchained", ReleaseDate = new DateTime(2012, 12, 25), Genre = "Western", Price = 11.99M, DirectorId = mothibaFortunate.Id, ActorId = jamie.Id }
+                        new Movie { Title = "When Harry Met Sally", ReleaseDate = new DateTime(1989, 2, 12), Genre = "Romantic Comedy", Price = 7.99M,Rating = "PG", DirectorId = robReiner.Id, ActorId = meg.Id },
+                        new Movie { Title = "Inception", ReleaseDate = new DateTime(2010, 7, 16), Genre = "Sci-Fi", Price = 9.99M,Rating = "PG", DirectorId = moriswiSimon.Id, ActorId = leo.Id },
+                        new Movie { Title = "E.T. the Extra-Terrestrial", ReleaseDate = new DateTime(1982, 6, 11), Genre = "Science Fiction", Price = 7.99M, Rating = "PG", DirectorId = leratoLee.Id, ActorId = meg.Id },
+                        new Movie { Title = "Interstellar", ReleaseDate = new DateTime(2014, 11, 7), Genre = "Science Fiction", Price = 12.99M, Rating = "PG", DirectorId = lucyMmasa.Id, ActorId = matthew.Id },
+                        new Movie { Title = "Pulp Fiction", ReleaseDate = new DateTime(1994, 10, 14), Genre = "Crime", Price = 8.99M, Rating = "PG", DirectorId = mphoNkuna.Id, ActorId = samuel.Id },
+                        new Movie { Title = "Django Unchained", ReleaseDate = new DateTime(2012, 12, 25), Genre = "Western", Price = 11.99M, Rating = "PG", DirectorId = mothibaFortunate.Id, ActorId = jamie.Id }
                     );
                     context.SaveChanges();
                 }

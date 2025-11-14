@@ -6,7 +6,11 @@
 
 <h1>Movies</h1>
 
-<table class="table">
+<p>
+    <a asp-page="Create" class="btn btn-success">Create New Movie</a>
+</p>
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Title</th>
@@ -16,20 +20,26 @@
             <th>Rating</th>
             <th>Director</th>
             <th>Actor</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var movie in Model.Movies)
-{
-    <tr>
-        <td>@movie.Title</td>
-        <td>@movie.Genre</td>
-        <td>@movie.ReleaseDate.ToString("yyyy-MM-dd")</td>
-        <td>@movie.Price.ToString("C")</td>
-        <td>@movie.Rating</td>
-        <td>@movie.Director?.Name</td>
-        <td>@movie.Actor?.FirstName @movie.Actor?.LastName</td>
-    </tr>
-}
+        @foreach (var movie in Model.Movies)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.Genre</td>
+                <td>@movie.ReleaseDate.ToString("yyyy-MM-dd")</td>
+                <td>@movie.Price.ToString("C")</td>
+                <td>@movie.Rating</td>
+                <td>@movie.Director?.Name</td>
+                <td>@movie.Actor?.FirstName @movie.Actor?.LastName</td>
+                <td class="action-buttons">
+                    <a asp-page="Edit" asp-route-id="@movie.Id" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-page="Details" asp-route-id="@movie.Id" class="btn btn-sm btn-info">Details</a>
+                    <a asp-page="Delete" asp-route-id="@movie.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
