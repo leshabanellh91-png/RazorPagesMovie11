@@ -9,13 +9,13 @@ namespace RazorPagesMovie1.Data
 {
     public class RazorPagesMovie1Context : DbContext
     {
-        public RazorPagesMovie1Context (DbContextOptions<RazorPagesMovie1Context> options)
+        public RazorPagesMovie1Context(DbContextOptions<RazorPagesMovie1Context> options)
             : base(options)
         {
         }
 
-        public DbSet<RazorPagesMovie.Models.Movie> Movie { get; set; } = default!;
+        public DbSet<RazorPagesMovie.Models.Movie> Movies { get; set; } = default!;
         public DbSet<Director> Director { get; set; } = default!;
-
+        public DbSet<Actor> Actors { get; set; } = default!; 
     }
 }
