@@ -19,8 +19,12 @@ namespace RazorPagesMovie1.Models
                 {
                     context.Director.AddRange(
                         new Director { Name = "Rob Reiner" },
-                        new Director { Name = "Christopher Nolan" },
-                        new Director { Name = "Steven Spielberg" }
+                        new Director { Name = "Moriswi Simon" },
+                        new Director { Name = "Lerato lee" },
+                         new Director { Name = "Lucy Mmasa" },
+                          new Director { Name = "Mpho Nkuna" },
+                           new Director { Name = "Mothiba Fortunate" }
+
                     );
 
                     context.SaveChanges();
