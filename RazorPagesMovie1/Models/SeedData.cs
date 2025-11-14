@@ -1,81 +1,58 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using RazorPagesMovie.Models;
 using RazorPagesMovie1.Data;
+using RazorPagesMovie1.Models;
 
-namespace RazorPagesMovie.Models;
-
-public static class SeedData
+namespace RazorPagesMovie1.Models
 {
-    public static async Task InitializeAsync(IServiceProvider serviceProvider)
+    public static class SeedData
     {
-        using var context = serviceProvider.GetRequiredService<RazorPagesMovie1Context>();
-        var logger = serviceProvider.GetRequiredService<ILogger<SeedData>>();
-
-        // Prevent duplicate seeding
-        if (await context.Movie.AnyAsync() || await context.Director.AnyAsync())
+        public static void Initialize(IServiceProvider serviceProvider)
         {
-            logger.LogInformation("Database already seeded — skipping.");
-            return;
-        }
-
-        logger.LogInformation("Seeding Directors...");
-
-        var directors = new List<Director>
-        {
-            new Director { Name = "Rob Reiner", BirthDate = new DateTime(1947, 3, 6) },
-            new Director { Name = "Ivan Reitman", BirthDate = new DateTime(1946, 10, 27) },
-            new Director { Name = "Howard Hawks", BirthDate = new DateTime(1896, 5, 30) }
-        };
-
-        context.Director.AddRange(directors);
-        await context.SaveChangesAsync();
-
-        logger.LogInformation("Seeding Movies...");
-
-        var movies = new List<Movie>
-        {
-            new Movie
+            using (var context = new RazorPagesMovie1Context(
+                serviceProvider.GetRequiredService<DbContextOptions<RazorPagesMovie1Context>>()))
             {
-                Title = "When Harry Met Sally",
-                ReleaseDate = new DateTime(1989, 2, 12),
-                Genre = "Romantic Comedy",
-                Price = 7.99M,
-                Rating = "R",
-                DirectorId = directors[0].Id
-            },
-            new Movie
-            {
-                Title = "Ghostbusters",
-                ReleaseDate = new DateTime(1984, 3, 13),
-                Genre = "Comedy",
-                Price = 8.99M,
-                Rating = "PG",
-                DirectorId = directors[1].Id
-            },
-            new Movie
-            {
-                Title = "Ghostbusters 2",
-                ReleaseDate = new DateTime(1986, 2, 23),
-                Genre = "Comedy",
-                Price = 9.99M,
-                Rating = "PG",
-                DirectorId = directors[1].Id
-            },
-            new Movie
-            {
-                Title = "Rio Bravo",
-                ReleaseDate = new DateTime(1959, 4, 15),
-                Genre = "Western",
-                Price = 3.99M,
-                Rating = "PG-13",
-                DirectorId = directors[2].Id
+                // Seed Directors first
+                if (!context.Director.Any())
+                {
+                    context.Director.AddRange(
+                        new Director { Name = "Rob Reiner" },
+                        new Director { Name = "Christopher Nolan" },
+                        new Director { Name = "Steven Spielberg" }
+                    );
+
+                    context.SaveChanges();
+                }
+
+                // Seed Movies next
+                if (!context.Movie.Any())
+                {
+                    var robReiner = context.Director.First(d => d.Name == "Rob Reiner");
+                    var nolan = context.Director.First(d => d.Name == "Christopher Nolan");
+
+                    context.Movie.AddRange(
+                        new Movie
+                        {
+                            Title = "When Harry Met Sally",
+                            ReleaseDate = DateTime.Parse("1989-02-12"),
+                            Genre = "Romantic Comedy",
+                            Price = 7.99M,
+                            DirectorId = robReiner.Id
+                        },
+                        new Movie
+                        {
+                            Title = "Inception",
+                            ReleaseDate = DateTime.Parse("2010-07-16"),
+                            Genre = "Sci-Fi",
+                            Price = 9.99M,
+                            DirectorId = nolan.Id
+                        }
+                    );
+
+                    context.SaveChanges();
+                }
             }
-        };
-
-        context.Movie.AddRange(movies);
-        await context.SaveChangesAsync();
-
-        logger.LogInformation("Seeding complete: {count} Movies, {directorCount} Directors",
-            movies.Count, directors.Count);
+        }
     }
 }
