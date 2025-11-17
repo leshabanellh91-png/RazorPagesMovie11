@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorPagesMovie1.Data;
 
@@ -11,9 +12,11 @@ using RazorPagesMovie1.Data;
 namespace RazorPagesMovie1.Migrations
 {
     [DbContext(typeof(RazorPagesMovie1Context))]
-    partial class RazorPagesMovie1ContextModelSnapshot : ModelSnapshot
+    [Migration("20251114094507_Addactors")]
+    partial class Addactors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,9 +54,6 @@ namespace RazorPagesMovie1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ActorId")
-                        .HasColumnType("int");
-
                     b.Property<int>("DirectorId")
                         .HasColumnType("int");
 
@@ -79,8 +79,6 @@ namespace RazorPagesMovie1.Migrations
                         .HasColumnType("nvarchar(60)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ActorId");
 
                     b.HasIndex("DirectorId");
 
@@ -113,24 +111,16 @@ namespace RazorPagesMovie1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actors");
+                    b.ToTable("Actor");
                 });
 
             modelBuilder.Entity("RazorPagesMovie.Models.Movie", b =>
                 {
-                    b.HasOne("RazorPagesMovie1.Models.Actor", "Actor")
-                        .WithMany()
-                        .HasForeignKey("ActorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RazorPagesMovie.Models.Director", "Director")
                         .WithMany()
                         .HasForeignKey("DirectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Actor");
 
                     b.Navigation("Director");
                 });

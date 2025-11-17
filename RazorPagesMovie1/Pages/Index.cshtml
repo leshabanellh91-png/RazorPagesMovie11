@@ -1,10 +1,13 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Welcome to Blockbusters Movies</h1>
+<p>
+    <a asp-page="Create" class="btn btn-success">Create New Movie</a>
+</p>
+
+
+<p>Explore our movie collection!</p>
+
+<a asp-page="/Movies/Index" class="btn btn-primary">Go to Movies</a>
+

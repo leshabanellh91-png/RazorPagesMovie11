@@ -21,5 +21,6 @@ namespace RazorPagesMovie.Models
 
         [StringLength(100)]
         public required string Nationality { get; set; }
+
     }
 }

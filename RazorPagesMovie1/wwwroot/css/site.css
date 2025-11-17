@@ -1,126 +1,35 @@
-/* ---------------- Body and Overall ---------------- */
-body {
-    background-color: #f4f6f8; /* light gray-blue background */
-    color: #333333; /* dark text for readability */
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-/* ---------------- Header / Navigation ---------------- */
-header, nav {
-    background-color: #004080; /* dark blue */
-    color: #ffffff;
-    padding: 15px 20px;
+/* ---------------- Homepage Styling ---------------- */
+.homepage-container {
+    background: linear-gradient(135deg, #004080, #008CBA); /* gradient from dark to bright blue */
+    color: white;
     text-align: center;
+    padding: 80px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin: 20px auto;
+    max-width: 800px;
 }
 
-    header h1 {
-        margin: 0;
-        font-size: 28px;
+    .homepage-container h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
     }
 
-    /* Navigation links */
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
+    .homepage-container p {
+        font-size: 20px;
+        margin-bottom: 30px;
     }
 
-        nav a:hover {
-            color: #ffcc00; /* gold hover */
+    .homepage-container .btn {
+        font-size: 18px;
+        padding: 12px 24px;
+        border-radius: 8px;
+        background-color: #ffcc00; /* gold button */
+        color: #004080;
+        border: none;
+    }
+
+        .homepage-container .btn:hover {
+            background-color: #e6b800;
+            color: #003366;
         }
-
-/* ---------------- Buttons ---------------- */
-button, .btn {
-    background-color: #008CBA; /* bright blue */
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-    button:hover, .btn:hover {
-        background-color: #005f73; /* darker blue on hover */
-    }
-
-/* ---------------- Forms ---------------- */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select,
-textarea {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 8px;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 12px;
-}
-
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="password"]:focus,
-    select:focus,
-    textarea:focus {
-        border-color: #008CBA;
-        outline: none;
-    }
-
-/* ---------------- Tables ---------------- */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-    table th {
-        background-color: #004080;
-        color: white;
-        padding: 10px;
-        text-align: left;
-    }
-
-    table td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    table tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    table tr:hover {
-        background-color: #e6f2ff; /* light blue hover */
-    }
-
-/* ---------------- Alerts / Messages ---------------- */
-.alert {
-    padding: 12px 20px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.alert-error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-/* ---------------- Footer ---------------- */
-footer {
-    background-color: #004080;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}

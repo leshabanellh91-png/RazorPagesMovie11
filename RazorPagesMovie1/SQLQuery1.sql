@@ -1,0 +1,3 @@
+﻿DELETE FROM Movie;
+DELETE FROM Actors;
+
