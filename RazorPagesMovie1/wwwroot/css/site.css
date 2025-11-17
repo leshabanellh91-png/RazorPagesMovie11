@@ -1,35 +1,14 @@
-/* ---------------- Homepage Styling ---------------- */
-.homepage-container {
-    background: linear-gradient(135deg, #004080, #008CBA); /* gradient from dark to bright blue */
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    margin: 20px auto;
-    max-width: 800px;
+.movie-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .15s ease;
 }
 
-    .homepage-container h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
+    .movie-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
     }
 
-    .homepage-container p {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-
-    .homepage-container .btn {
-        font-size: 18px;
-        padding: 12px 24px;
-        border-radius: 8px;
-        background-color: #ffcc00; /* gold button */
-        color: #004080;
-        border: none;
-    }
-
-        .homepage-container .btn:hover {
-            background-color: #e6b800;
-            color: #003366;
-        }
+.movie-img {
+    height: 180px;
+    object-fit: cover;
