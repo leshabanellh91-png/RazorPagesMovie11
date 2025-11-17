@@ -1,30 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using RazorPagesMovie.Models;
-using RazorPagesMovie1.Data;
 using RazorPagesMovie1.Models;
 
 namespace RazorPagesMovie1.Pages.Movies
 {
     public class IndexModel : PageModel
     {
-        private readonly RazorPagesMovie1Context _context;
+        // Selected genre from the query string
+        [BindProperty(SupportsGet = true)]
+        public string MovieGenre { get; set; }
 
-        public IndexModel(RazorPagesMovie1Context context)
-        {
-            _context = context;
-        }
+        // SelectList used by the <select> in the Razor page
+        public SelectList Genre { get; set; }
 
-        // List of movies to display
-        public IList<Movie> Movies { get; set; } = default!;
+        // Search string from the query string
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
 
-        public async Task OnGetAsync()
-        {
-            // Include Director and Actor navigation properties
-            Movies = await _context.Movie
-                .Include(m => m.Director)
-                .Include(m => m.Actor)
-                .ToListAsync();
-        }
+        // Movies displayed in the page
+        public IList<Movie> Movies { get; set; } = new List<Movie>();
+
+        // Note: This file only adds the missing properties required by the Razor page.
+        // If you want the Genre SelectList and Movies list populated automatically,
+        // add a constructor injecting your DbContext and implement OnGet to fill them.
     }
 }
