@@ -4,11 +4,46 @@
     transition: transform .15s ease, box-shadow .15s ease;
 }
 
-    .movie-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
-    }
+.movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+}
+
+.homepage-container p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.homepage-container .btn {
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #ffcc00; /* gold button */
+    color: #004080;
+    border: none;
+}
+
+.homepage-container .btn:hover {
+    background-color: #e6b800;
+    color: #003366;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+select.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+}
+
+.text-danger {
+    color: red;
+}
 
 .movie-img {
     height: 180px;
     object-fit: cover;
+}
