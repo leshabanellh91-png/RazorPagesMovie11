@@ -37,4 +37,9 @@ public class Movie
     // Add Actor reference
     public int ActorId { get; set; }
     public Actor? Actor { get; set; }
+
+    [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
+    [Required]
+    public int  NovieRating { get; set; }  
+
 }
