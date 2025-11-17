@@ -22,7 +22,7 @@ public class Movie
 
     [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
     [Required]
-    public int Rating { get; set; } 
+    public int StarRating { get; set; } 
 
 
     [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
@@ -45,6 +45,6 @@ public class Movie
 
     [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
     [Required]
-    public int  NovieRating { get; set; }  
-
+    public int  NovieRating { get; set; }
+    public string Rating { get; internal set; }
 }
