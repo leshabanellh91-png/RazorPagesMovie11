@@ -20,6 +20,11 @@ public class Movie
     [Column(TypeName = "decimal(18, 2)")]
     public decimal Price { get; set; }
 
+    [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
+    [Required]
+    public int Rating { get; set; } 
+
+
     [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
     [Required]
     [StringLength(30)]
@@ -28,7 +33,7 @@ public class Movie
     [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
     [StringLength(5)]
     [Required]
-    public string Rating { get; set; } = string.Empty;
+    public string MovieRating { get; set; } = string.Empty;
 
 
     public int DirectorId { get; set; }
