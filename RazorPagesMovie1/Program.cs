@@ -12,7 +12,6 @@ builder.Services.AddDbContext<RazorPagesMovie1Context>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("RazorPagesMovie1Context")));
 
-// Build the app
 var app = builder.Build();
 
 // ------------------------------------------
@@ -46,12 +45,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
 
-app.MapFallbackToPage("/Index");
-
-
+// Correct: Razor Pages mapping comes last
 app.MapRazorPages();
 
 app.Run();
