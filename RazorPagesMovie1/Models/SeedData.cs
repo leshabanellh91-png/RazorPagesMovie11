@@ -42,11 +42,22 @@ namespace RazorPagesMovie1.Models
                     context.SaveChanges();
                 }
 
-                // Seed Movies
+                // Seed Movies (assign single actor and image)
                 if (!context.Movie.Any())
                 {
-                    var directors = context.Director.ToList();
-                    var actors = context.Actors.ToList();
+                    var robReiner = context.Director.First(d => d.Name == "Rob Reiner");
+                    var moriswiSimon = context.Director.First(d => d.Name == "Moriswi Simon");
+                    var leratoLee = context.Director.First(d => d.Name == "Lerato Lee");
+                    var lucyMmasa = context.Director.First(d => d.Name == "Lucy Mmasa");
+                    var mphoNkuna = context.Director.First(d => d.Name == "Mpho Nkuna");
+                    var mothibaFortunate = context.Director.First(d => d.Name == "Mothiba Fortunate");
+
+                    var leo = context.Actors.First(a => a.FirstName == "Leonardo" && a.LastName == "DiCaprio");
+                    var samuel = context.Actors.First(a => a.FirstName == "Samuel" && a.LastName == "Jackson");
+                    var meg = context.Actors.First(a => a.FirstName == "Meg" && a.LastName == "Ryan");
+                    var matthew = context.Actors.First(a => a.FirstName == "Matthew" && a.LastName == "McConaughey");
+                    var john = context.Actors.First(a => a.FirstName == "John" && a.LastName == "Travolta");
+                    var jamie = context.Actors.First(a => a.FirstName == "Jamie" && a.LastName == "Foxx");
 
                     context.Movie.AddRange(
                         new Movie
@@ -56,9 +67,9 @@ namespace RazorPagesMovie1.Models
                             Genre = "Romantic Comedy",
                             Price = 7.99M,
                             Rating = "PG",
-                            DirectorId = directors.First(d => d.Name == "Rob Reiner").Id,
-                            ActorId = actors.First(a => a.FirstName == "Meg" && a.LastName == "Ryan").Id,
-                            ImageUrl = "whenharrymetsally.jpg"
+                            DirectorId = robReiner.Id,
+                            ActorId = meg.Id,
+                            ImageUrl = "/images/whenharrymetsally.jpg"
                         },
                         new Movie
                         {
@@ -67,9 +78,9 @@ namespace RazorPagesMovie1.Models
                             Genre = "Sci-Fi",
                             Price = 9.99M,
                             Rating = "PG",
-                            DirectorId = directors.First(d => d.Name == "Moriswi Simon").Id,
-                            ActorId = actors.First(a => a.FirstName == "Leonardo" && a.LastName == "DiCaprio").Id,
-                            ImageUrl = "inception.jpg"
+                            DirectorId = moriswiSimon.Id,
+                            ActorId = leo.Id,
+                            ImageUrl = "/images/inception.jpg"
                         },
                         new Movie
                         {
@@ -78,9 +89,9 @@ namespace RazorPagesMovie1.Models
                             Genre = "Science Fiction",
                             Price = 7.99M,
                             Rating = "PG",
-                            DirectorId = directors.First(d => d.Name == "Lerato Lee").Id,
-                            ActorId = actors.First(a => a.FirstName == "Meg" && a.LastName == "Ryan").Id,
-                            ImageUrl = "et.jpg"
+                            DirectorId = leratoLee.Id,
+                            ActorId = meg.Id,
+                            ImageUrl = "/images/et.jpg"
                         },
                         new Movie
                         {
@@ -89,9 +100,9 @@ namespace RazorPagesMovie1.Models
                             Genre = "Science Fiction",
                             Price = 12.99M,
                             Rating = "PG",
-                            DirectorId = directors.First(d => d.Name == "Lucy Mmasa").Id,
-                            ActorId = actors.First(a => a.FirstName == "Matthew" && a.LastName == "McConaughey").Id,
-                            ImageUrl = "interstellar.jpg"
+                            DirectorId = lucyMmasa.Id,
+                            ActorId = matthew.Id,
+                            ImageUrl = "/images/interstellar.jpg"
                         },
                         new Movie
                         {
@@ -100,9 +111,9 @@ namespace RazorPagesMovie1.Models
                             Genre = "Crime",
                             Price = 8.99M,
                             Rating = "PG",
-                            DirectorId = directors.First(d => d.Name == "Mpho Nkuna").Id,
-                            ActorId = actors.First(a => a.FirstName == "Samuel" && a.LastName == "Jackson").Id,
-                            ImageUrl = "pulpfiction.jpg"
+                            DirectorId = mphoNkuna.Id,
+                            ActorId = samuel.Id,
+                            ImageUrl = "/images/pulpfiction.jpg"
                         },
                         new Movie
                         {
@@ -111,13 +122,14 @@ namespace RazorPagesMovie1.Models
                             Genre = "Western",
                             Price = 11.99M,
                             Rating = "PG",
-                            DirectorId = directors.First(d => d.Name == "Mothiba Fortunate").Id,
-                            ActorId = actors.First(a => a.FirstName == "Jamie" && a.LastName == "Foxx").Id,
-                            ImageUrl = "django.jpg"
+                            DirectorId = mothibaFortunate.Id,
+                            ActorId = jamie.Id,
+                            ImageUrl = "/images/django.jpg"
                         }
                     );
                     context.SaveChanges();
                 }
+
             }
         }
     }

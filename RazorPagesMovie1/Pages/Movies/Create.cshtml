@@ -6,7 +6,7 @@
 
 <h1>Create Movie</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="Movie.Title"></label>
         <input asp-for="Movie.Title" class="form-control" />
@@ -45,6 +45,12 @@
     <div class="form-group">
         <label>Actor</label>
         <select asp-for="Movie.ActorId" asp-items="Model.ActorList" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Movie Poster</label>
+        <input type="file" asp-for="MovieImage" class="form-control" />
+        <span asp-validation-for="MovieImage" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Create</button>
