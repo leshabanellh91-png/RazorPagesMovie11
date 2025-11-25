@@ -9,6 +9,7 @@
 
 <h4>Movie</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form method="post" enctype="multipart/form-data">
@@ -45,7 +46,7 @@
                 <span asp-validation-for="Movie.Rating" class="text-danger"></span>
             </div>
 
-            <!-- Current image preview -->
+            <!-- CURRENT IMAGE PREVIEW -->
             @if (!string.IsNullOrEmpty(Model.Movie.ImageUrl))
             {
                 <div class="form-group mb-2">
@@ -54,22 +55,19 @@
                 </div>
             }
 
-            <!-- File input to update poster -->
+            <!-- NEW IMAGE UPLOAD -->
             <div class="form-group mb-3">
                 <label>Upload New Poster:</label>
                 <input type="file" asp-for="MovieImage" class="form-control" />
                 <span asp-validation-for="MovieImage" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

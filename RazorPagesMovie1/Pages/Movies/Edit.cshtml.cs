@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Models;
 using RazorPagesMovie1.Data;
 using RazorPagesMovie1.Models;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RazorPagesMovie1.Pages.Movies
 {
@@ -22,69 +20,64 @@ namespace RazorPagesMovie1.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; } = default!;
+        public Movie Movie { get; set; }
 
+        // Bound file input
         [BindProperty]
-        public IFormFile MovieImage { get; set; } // new poster
+        public IFormFile MovieImage { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
             Movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
-            if (Movie == null) return NotFound();
+
+            if (Movie == null)
+                return NotFound();
 
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid) return Page();
+            if (!ModelState.IsValid)
+                return Page();
 
             var movieToUpdate = await _context.Movie.FindAsync(Movie.Id);
-            if (movieToUpdate == null) return NotFound();
+            if (movieToUpdate == null)
+                return NotFound();
 
-            // Update basic fields
+            // Update simple fields
             movieToUpdate.Title = Movie.Title;
-            movieToUpdate.Genre = Movie.Genre;
             movieToUpdate.ReleaseDate = Movie.ReleaseDate;
+            movieToUpdate.Genre = Movie.Genre;
             movieToUpdate.Price = Movie.Price;
             movieToUpdate.Rating = Movie.Rating;
-            movieToUpdate.DirectorId = Movie.DirectorId;
-            movieToUpdate.ActorId = Movie.ActorId;
 
-            // Handle image upload
+            // If a new image was uploaded
             if (MovieImage != null)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
+                string uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
                 Directory.CreateDirectory(uploadsFolder);
-                var fileName = Path.GetFileName(MovieImage.FileName);
-                var filePath = Path.Combine(uploadsFolder, fileName);
 
+                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(MovieImage.FileName);
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                // Save new image
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await MovieImage.CopyToAsync(fileStream);
                 }
 
-                movieToUpdate.ImageUrl = "/images/" + fileName;
+                // Update the database path
+                movieToUpdate.ImageUrl = "/images/" + uniqueFileName;
             }
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MovieExists(Movie.Id)) return NotFound();
-                else throw;
-            }
+            // Save changes
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
-        }
-
-        private bool MovieExists(int id)
-        {
-            return _context.Movie.Any(e => e.Id == id);
         }
     }
 }
