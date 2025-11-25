@@ -42,30 +42,79 @@ namespace RazorPagesMovie1.Models
                     context.SaveChanges();
                 }
 
-                // Seed Movies (assign single actor)
+                // Seed Movies
                 if (!context.Movie.Any())
                 {
-                    var robReiner = context.Director.First(d => d.Name == "Rob Reiner");
-                    var moriswiSimon = context.Director.First(d => d.Name == "Moriswi Simon");
-                    var leratoLee = context.Director.First(d => d.Name == "Lerato Lee");
-                    var lucyMmasa = context.Director.First(d => d.Name == "Lucy Mmasa");
-                    var mphoNkuna = context.Director.First(d => d.Name == "Mpho Nkuna");
-                    var mothibaFortunate = context.Director.First(d => d.Name == "Mothiba Fortunate");
-
-                    var leo = context.Actors.First(a => a.FirstName == "Leonardo" && a.LastName == "DiCaprio");
-                    var samuel = context.Actors.First(a => a.FirstName == "Samuel" && a.LastName == "Jackson");
-                    var meg = context.Actors.First(a => a.FirstName == "Meg" && a.LastName == "Ryan");
-                    var matthew = context.Actors.First(a => a.FirstName == "Matthew" && a.LastName == "McConaughey");
-                    var john = context.Actors.First(a => a.FirstName == "John" && a.LastName == "Travolta");
-                    var jamie = context.Actors.First(a => a.FirstName == "Jamie" && a.LastName == "Foxx");
+                    var directors = context.Director.ToList();
+                    var actors = context.Actors.ToList();
 
                     context.Movie.AddRange(
-                        new Movie { Title = "When Harry Met Sally", ReleaseDate = new DateTime(1989, 2, 12), Genre = "Romantic Comedy", Price = 7.99M,Rating = "PG", DirectorId = robReiner.Id, ActorId = meg.Id },
-                        new Movie { Title = "Inception", ReleaseDate = new DateTime(2010, 7, 16), Genre = "Sci-Fi", Price = 9.99M,Rating = "PG", DirectorId = moriswiSimon.Id, ActorId = leo.Id },
-                        new Movie { Title = "E.T. the Extra-Terrestrial", ReleaseDate = new DateTime(1982, 6, 11), Genre = "Science Fiction", Price = 7.99M, Rating = "PG", DirectorId = leratoLee.Id, ActorId = meg.Id },
-                        new Movie { Title = "Interstellar", ReleaseDate = new DateTime(2014, 11, 7), Genre = "Science Fiction", Price = 12.99M, Rating = "PG", DirectorId = lucyMmasa.Id, ActorId = matthew.Id },
-                        new Movie { Title = "Pulp Fiction", ReleaseDate = new DateTime(1994, 10, 14), Genre = "Crime", Price = 8.99M, Rating = "PG", DirectorId = mphoNkuna.Id, ActorId = samuel.Id },
-                        new Movie { Title = "Django Unchained", ReleaseDate = new DateTime(2012, 12, 25), Genre = "Western", Price = 11.99M, Rating = "PG", DirectorId = mothibaFortunate.Id, ActorId = jamie.Id }
+                        new Movie
+                        {
+                            Title = "When Harry Met Sally",
+                            ReleaseDate = new DateTime(1989, 2, 12),
+                            Genre = "Romantic Comedy",
+                            Price = 7.99M,
+                            Rating = "PG",
+                            DirectorId = directors.First(d => d.Name == "Rob Reiner").Id,
+                            ActorId = actors.First(a => a.FirstName == "Meg" && a.LastName == "Ryan").Id,
+                            ImageUrl = "whenharrymetsally.jpg"
+                        },
+                        new Movie
+                        {
+                            Title = "Inception",
+                            ReleaseDate = new DateTime(2010, 7, 16),
+                            Genre = "Sci-Fi",
+                            Price = 9.99M,
+                            Rating = "PG",
+                            DirectorId = directors.First(d => d.Name == "Moriswi Simon").Id,
+                            ActorId = actors.First(a => a.FirstName == "Leonardo" && a.LastName == "DiCaprio").Id,
+                            ImageUrl = "inception.jpg"
+                        },
+                        new Movie
+                        {
+                            Title = "E.T. the Extra-Terrestrial",
+                            ReleaseDate = new DateTime(1982, 6, 11),
+                            Genre = "Science Fiction",
+                            Price = 7.99M,
+                            Rating = "PG",
+                            DirectorId = directors.First(d => d.Name == "Lerato Lee").Id,
+                            ActorId = actors.First(a => a.FirstName == "Meg" && a.LastName == "Ryan").Id,
+                            ImageUrl = "et.jpg"
+                        },
+                        new Movie
+                        {
+                            Title = "Interstellar",
+                            ReleaseDate = new DateTime(2014, 11, 7),
+                            Genre = "Science Fiction",
+                            Price = 12.99M,
+                            Rating = "PG",
+                            DirectorId = directors.First(d => d.Name == "Lucy Mmasa").Id,
+                            ActorId = actors.First(a => a.FirstName == "Matthew" && a.LastName == "McConaughey").Id,
+                            ImageUrl = "interstellar.jpg"
+                        },
+                        new Movie
+                        {
+                            Title = "Pulp Fiction",
+                            ReleaseDate = new DateTime(1994, 10, 14),
+                            Genre = "Crime",
+                            Price = 8.99M,
+                            Rating = "PG",
+                            DirectorId = directors.First(d => d.Name == "Mpho Nkuna").Id,
+                            ActorId = actors.First(a => a.FirstName == "Samuel" && a.LastName == "Jackson").Id,
+                            ImageUrl = "pulpfiction.jpg"
+                        },
+                        new Movie
+                        {
+                            Title = "Django Unchained",
+                            ReleaseDate = new DateTime(2012, 12, 25),
+                            Genre = "Western",
+                            Price = 11.99M,
+                            Rating = "PG",
+                            DirectorId = directors.First(d => d.Name == "Mothiba Fortunate").Id,
+                            ActorId = actors.First(a => a.FirstName == "Jamie" && a.LastName == "Foxx").Id,
+                            ImageUrl = "django.jpg"
+                        }
                     );
                     context.SaveChanges();
                 }

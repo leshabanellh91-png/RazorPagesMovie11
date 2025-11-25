@@ -20,31 +20,32 @@ namespace RazorPagesMovie1.Pages.Movies
             _context = context;
         }
 
+        // Filters
         [BindProperty(SupportsGet = true)]
         public string MovieGenre { get; set; }
-
-        public SelectList Genre { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
 
+        // Select list for genres
+        public SelectList Genre { get; set; }
+
+        // Movies list
         public IList<Movie> Movies { get; set; }
 
         public async Task OnGetAsync()
         {
-            // Query genres for dropdown
-            IQueryable<string> genreQuery = _context.Movie
-                .OrderBy(m => m.Genre)
-                .Select(m => m.Genre)
-                .Distinct();
+            // Query distinct genres for dropdown
+            IQueryable<string> genreQuery = from m in _context.Movie
+                                            orderby m.Genre
+                                            select m.Genre;
 
-            // Load movies including Actor and Director
             var movies = _context.Movie
-                .Include(m => m.Actor)
-                .Include(m => m.Director)
-                .AsQueryable();
+                                 .Include(m => m.Actor)
+                                 .Include(m => m.Director)
+                                 .AsQueryable();
 
-            // Filter by title
+            // Filter by search string
             if (!string.IsNullOrEmpty(SearchString))
             {
                 movies = movies.Where(m => m.Title.Contains(SearchString));
@@ -56,7 +57,8 @@ namespace RazorPagesMovie1.Pages.Movies
                 movies = movies.Where(m => m.Genre == MovieGenre);
             }
 
-            Genre = new SelectList(await genreQuery.ToListAsync());
+            Genre = new SelectList(await genreQuery.Distinct().ToListAsync());
+
             Movies = await movies.ToListAsync();
         }
     }
