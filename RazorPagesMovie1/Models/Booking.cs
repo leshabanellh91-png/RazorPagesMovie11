@@ -11,9 +11,9 @@ namespace RazorMovieProject.Models
 
         [Required]
         public int MovieId { get; set; }
-        public Movie Movie { get; set; }
+        public required Movie Movie { get; set; }
 
-        public string UserId { get; set; }
+        public required string UserId { get; set; }
 
         public DateTime BookingDate { get; set; } = DateTime.Now;
 
@@ -23,6 +23,10 @@ namespace RazorMovieProject.Models
         [Required]
         [Range(1, 20)]
         public int NumberOfTickets { get; set; }
+
+        [Required]
+        public required string SeatNumbers { get; set; } // eg: A1,A2,A3
+
 
         [DataType(DataType.Currency)]
         public decimal TotalPrice { get; set; }
