@@ -1,44 +1,73 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using RazorMovieProject.Models;
-using RazorPagesMovie1.Data;
-using System.Threading.Tasks;
+﻿@page
+@model RazorPagesMovie1.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
 
-namespace RazorPagesMovie1.Pages.Bookings
-{
-    public class CreateModel : PageModel
-    {
-        private readonly RazorPagesMovie1Context _context;
+<h1>Create Booking</h1>
 
-        public CreateModel(RazorPagesMovie1Context context)
-        {
-            _context = context;
-        }
+<h4>Booking Details</h4>
+<hr />
 
-        [BindProperty]
-        public Booking Booking { get; set; } = new Booking();
+<div class="row">
+    <div class="col-md-6">
 
-        public IActionResult OnGet()
-        {
-            // Populate the dropdown with Movie Ids and Titles
-            ViewData["MovieId"] = new SelectList(_context.Movie, "Id", "Title");
-            return Page();
-        }
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        public async Task<IActionResult>
-    OnPostAsync()
-    {
-    if (!ModelState.IsValid)
-    {
-    ViewData["MovieId"] = new SelectList(_context.Movie, "Id", "Title");
-    return Page();
-    }
+            <!-- Movie Dropdown -->
+            <div class="form-group mb-3">
+                <label asp-for="Booking.MovieId" class="form-label"></label>
+                <select asp-for="Booking.MovieId" class="form-control" asp-items="@(ViewData["MovieId"] as SelectList)">
+                    <option value="">-- Select a Movie --</option>
+                </select>
+                <span asp-validation-for="Booking.MovieId" class="text-danger"></span>
+            </div>
 
-    _context.Bookings.Add(Booking);
-    await _context.SaveChangesAsync();
+            <!-- User Id -->
+            <div class="form-group mb-3">
+                <label asp-for="Booking.UserId" class="form-label"></label>
+                <input asp-for="Booking.UserId" class="form-control" />
+                <span asp-validation-for="Booking.UserId" class="text-danger"></span>
+            </div>
 
-    return RedirectToPage("./Index");
-    }
-    }
-    }
+            <!-- Booking Date -->
+            <div class="form-group mb-3">
+                <label asp-for="Booking.BookingDate" class="form-label"></label>
+                <input asp-for="Booking.BookingDate" class="form-control" type="date" />
+                <span asp-validation-for="Booking.BookingDate" class="text-danger"></span>
+            </div>
+
+            <!-- ShowTime -->
+            <div class="form-group mb-3">
+                <label asp-for="Booking.ShowTime" class="form-label"></label>
+                <input asp-for="Booking.ShowTime" class="form-control" type="time" />
+                <span asp-validation-for="Booking.ShowTime" class="text-danger"></span>
+            </div>
+
+            <!-- Number of Tickets -->
+            <div class="form-group mb-3">
+                <label asp-for="Booking.NumberOfTickets" class="form-label"></label>
+                <input asp-for="Booking.NumberOfTickets" class="form-control" />
+                <span asp-validation-for="Booking.NumberOfTickets" class="text-danger"></span>
+            </div>
+
+            <!-- Total Price -->
+            <div class="form-group mb-3">
+                <label asp-for="Booking.TotalPrice" class="form-label"></label>
+                <input asp-for="Booking.TotalPrice" class="form-control" />
+                <span asp-validation-for="Booking.TotalPrice" class="text-danger"></span>
+            </div>
+
+            <!-- Buttons -->
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
