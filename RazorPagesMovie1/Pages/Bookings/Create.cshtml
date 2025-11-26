@@ -52,6 +52,26 @@
                 <span asp-validation-for="Booking.NumberOfTickets" class="text-danger"></span>
             </div>
 
+            <div class="mb-3">
+                <label asp-for="Booking.SeatNumbers"></label>
+                <input asp-for="Booking.SeatNumbers" class="form-control" placeholder="e.g A1,A2,A3" />
+                <span asp-validation-for="Booking.SeatNumbers" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Booking.ShowTime"></label>
+                <select asp-for="Booking.ShowTime" class="form-control">
+                    <option value="">-- Select Show Time --</option>
+                    <option value="2025-03-01 10:00">10:00 AM</option>
+                    <option value="2025-03-01 13:00">1:00 PM</option>
+                    <option value="2025-03-01 18:00">6:00 PM</option>
+                    <option value="2025-03-01 21:00">9:00 PM</option>
+                </select>
+                <span asp-validation-for="Booking.ShowTime" class="text-danger"></span>
+            </div>
+
+
+
             <!-- Total Price -->
             <div class="form-group mb-3">
                 <label asp-for="Booking.TotalPrice" class="form-label"></label>
