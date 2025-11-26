@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie1.Data;
 using RazorPagesMovie1.Models;
+using YourProjectNamespace.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,18 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<RazorPagesMovie1Context>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("RazorPagesMovie1Context")));
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("ApplicationDbContextConnection")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 var app = builder.Build();
 
