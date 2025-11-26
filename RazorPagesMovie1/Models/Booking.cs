@@ -20,6 +20,9 @@ namespace RazorMovieProject.Models
         [Required]
         public DateTime ShowTime { get; set; }
 
+        public string PaymentStatus { get; set; } = "Pending";
+
+
         [Required]
         [Range(1, 20)]
         public int NumberOfTickets { get; set; }
