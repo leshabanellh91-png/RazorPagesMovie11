@@ -41,6 +41,8 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Movie.Rating)
         </dd>
+        <p><strong>Total Bookings:</strong> @Model.Movie.Bookings?.Count()</p>
+
     </dl>
 </div>
 <div>

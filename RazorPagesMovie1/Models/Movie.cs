@@ -1,4 +1,5 @@
-﻿using RazorPagesMovie1.Models;
+﻿using RazorMovieProject.Models;
+using RazorPagesMovie1.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -38,5 +39,7 @@ namespace RazorPagesMovie.Models
 
         // New property for movie poster image URL
         public string? ImageUrl { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
+
     }
 }

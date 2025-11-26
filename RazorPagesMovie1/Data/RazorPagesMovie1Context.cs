@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using RazorMovieProject.Models;
+using RazorPagesMovie.Models;
+using RazorPagesMovie1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Models;
-using RazorPagesMovie1.Models;
 
 namespace RazorPagesMovie1.Data
 {
@@ -18,7 +19,9 @@ namespace RazorPagesMovie1.Data
         public DbSet<Director> Director { get; set; }
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Actor> Actors { get; set; }
-        
+        public DbSet<Booking> Bookings { get; set; }
+
+
 
 
 

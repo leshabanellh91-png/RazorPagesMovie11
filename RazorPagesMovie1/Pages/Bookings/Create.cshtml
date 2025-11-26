@@ -1,0 +1,44 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using RazorMovieProject.Models;
+using RazorPagesMovie1.Data;
+using System.Threading.Tasks;
+
+namespace RazorPagesMovie1.Pages.Bookings
+{
+    public class CreateModel : PageModel
+    {
+        private readonly RazorPagesMovie1Context _context;
+
+        public CreateModel(RazorPagesMovie1Context context)
+        {
+            _context = context;
+        }
+
+        [BindProperty]
+        public Booking Booking { get; set; } = new Booking();
+
+        public IActionResult OnGet()
+        {
+            // Populate the dropdown with Movie Ids and Titles
+            ViewData["MovieId"] = new SelectList(_context.Movie, "Id", "Title");
+            return Page();
+        }
+
+        public async Task<IActionResult>
+    OnPostAsync()
+    {
+    if (!ModelState.IsValid)
+    {
+    ViewData["MovieId"] = new SelectList(_context.Movie, "Id", "Title");
+    return Page();
+    }
+
+    _context.Bookings.Add(Booking);
+    await _context.SaveChangesAsync();
+
+    return RedirectToPage("./Index");
+    }
+    }
+    }
