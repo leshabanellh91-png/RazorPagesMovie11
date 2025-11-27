@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie1.Data;
 using RazorPagesMovie1.Models;
-using YourProjectNamespace.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,11 +18,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         builder.Configuration.GetConnectionString("ApplicationDbContextConnection")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
-{
+
+{ 
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 8;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+    options.SignIn.RequireConfirmedPhoneNumber = false;
     options.SignIn.RequireConfirmedAccount = false;
 })
-.AddRoles<IdentityRole>()
-.AddEntityFrameworkStores<ApplicationDbContext>();
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
 
 var app = builder.Build();

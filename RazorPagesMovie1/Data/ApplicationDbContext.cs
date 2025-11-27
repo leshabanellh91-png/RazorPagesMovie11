@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RazorPagesMovie.Models;
 
-namespace YourProjectNamespace.Data
+namespace RazorPagesMovie1.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -9,5 +10,8 @@ namespace YourProjectNamespace.Data
             : base(options)
         {
         }
+
+        // Define DbSets for your entities (e.g., Movies, Users, etc.)
+        public DbSet<Movie> Movies { get; set; }
     }
 }
