@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RazorMovieProject.Models;
 using RazorPagesMovie.Models;
+using RazorPagesMovie.Pages.Payments;
 using RazorPagesMovie1.Models;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,11 @@ namespace RazorPagesMovie1.Data
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public object Booking { get; internal set; }
 
-
-
-
-
+        public static implicit operator RazorPagesMovie1Context(RazorPagesMovieContext v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
