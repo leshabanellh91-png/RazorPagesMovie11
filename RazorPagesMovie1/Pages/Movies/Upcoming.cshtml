@@ -1,0 +1,18 @@
+﻿<div class="row">
+    @foreach (var movie in Model.UpcomingMovies)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top"
+                     src="@(string.IsNullOrEmpty(movie?.PosterUrl) ? Url.Content("~/images/default-poster.jpg") : Url.Content(movie.PosterUrl))"
+                     alt="@(movie?.Title ?? "Movie Poster")" />
+                <div class="card-body">
+                    <h5 class="card-title">@movie?.Title</h5>
+                    <p><strong>Release Date:</strong> @movie?.ReleaseDate.ToString("dd MMM yyyy")</p>
+                    <p><strong>Genre:</strong> @movie?.Genre</p>
+                    <p><strong>Director:</strong> @movie?.Director</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
