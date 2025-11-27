@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
@@ -33,12 +30,25 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-page="/Movies/Index">Movies</a>
+
+                            <!-- Correct Link for Login and Register in Razor Pages -->
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-page="/Account/Login">Login</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-page="/Account/Register">Register</a>
+                        </li>
+
+                        
+                        
                         <!-- BOOKINGS (NEW) -->
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-page="/Bookings/Index">Bookings</a>
                         </li>
+                        <partial name="_LoginPartial" />
                     </ul>
+
+                    
                 </div>
             </div>
         </nav>

@@ -1,0 +1,45 @@
+﻿@using RazorPagesMovie1.Pages.Account;
+@model RazorPagesMovie1.Pages.Account.RegisterModel;
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="RegisterViewModel.Name" class="control-label"></label>
+                <input asp-for="RegisterViewModel.Name" class="form-control" />
+                <span asp-validation-for="RegisterViewModel.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegisterViewModel.Email" class="control-label"></label>
+                <input asp-for="RegisterViewModel.Email" class="form-control" />
+                <span asp-validation-for="RegisterViewModel.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegisterViewModel.NewPassword" class="control-label"></label>
+                <input asp-for="RegisterViewModel.NewPassword" type="password" class="form-control" />
+                <span asp-validation-for="RegisterViewModel.NewPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegisterViewModel.ConfirmNewPassword" class="control-label"></label>
+                <input asp-for="RegisterViewModel.ConfirmNewPassword" type="password" class="form-control" />
+                <span asp-validation-for="RegisterViewModel.ConfirmNewPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>
+
+<!-- Validation Scripts -->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+}
