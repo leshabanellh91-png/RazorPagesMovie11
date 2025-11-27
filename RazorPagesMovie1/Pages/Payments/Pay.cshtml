@@ -1,0 +1,19 @@
+﻿@page "{bookingId:int}"
+@model RazorPagesMovie.Pages.Payments.PayModel
+
+<h2>Payment</h2>
+
+@if (Model.Booking != null)
+{
+    <p>Total Amount: <strong>@Model.Booking.TotalPrice</strong></p>
+    <p>Seats: @Model.Booking.SeatNumbers</p>
+    <p>Showtime: @Model.Booking.ShowTime</p>
+
+    <form method="post">
+        <button type="submit" class="btn btn-success">Confirm Payment</button>
+    </form>
+}
+else
+{
+    <p class="text-danger">Booking not found.</p>
+}
