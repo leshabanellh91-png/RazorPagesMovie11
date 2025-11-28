@@ -21,35 +21,12 @@ namespace RazorPagesMovie1.Pages.Movies
 
         [BindProperty]
         public Movie Movie { get; set; }
-        public string GetEmbedUrl(string url)
-        {
-            if (string.IsNullOrEmpty(url))
-                return url;
+        [BindProperty]
+        public IFormFile TrailerFile { get; set; }
 
-            if (url.Contains("watch?v="))
-                return url.Replace("watch?v=", "embed/");
-            if (url.Contains("youtu.be"))
-                return url.Replace("youtu.be/", "www.youtube.com/embed/");
-            if (url.Contains("/shorts/"))
-                return url.Replace("/shorts/", "embed/");
-
-            return url;
-        }
-         
-
-    public string RemoveEmbedUrl(string url)
-        {
-            if (string.IsNullOrEmpty(url))
-                return url;
-
-            if (url.Contains("/embed/"))
-                return url.Replace("/embed/", "watch?v=");
-
-            return url;
-        }
 
         // OnGet, OnPost, etc...
-    
+
 
 
         // Bound file input
@@ -108,6 +85,39 @@ namespace RazorPagesMovie1.Pages.Movies
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+
         }
+        public async Task<IActionResult> OnPostAsync(int id)
+        {
+            var movie = await _context.Movie.FindAsync(id);
+
+            if (movie == null)
+                return NotFound();
+
+            // PROCESS TRAILER FILE
+            if (TrailerFile != null)
+            {
+                var uploadsFolder = Path.Combine("wwwroot", "uploads", "trailers");
+                Directory.CreateDirectory(uploadsFolder);
+
+                string fileName = $"{Guid.NewGuid()}{Path.GetExtension(TrailerFile.FileName)}";
+                string filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await TrailerFile.CopyToAsync(stream);
+                }
+
+                // Save relative path to your Trail property!
+                movie.Trail = $"/uploads/trailers/{fileName}";
+            }
+
+            // Save DB
+            _context.Attach(movie).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
+
     }
 }
