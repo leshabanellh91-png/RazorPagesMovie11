@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Models;
 using RazorPagesMovie1.Data;
 using RazorPagesMovie1.Models;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -25,7 +27,10 @@ namespace RazorPagesMovie1.Pages.Movies
         public Movie Movie { get; set; }
 
         [BindProperty]
-        public IFormFile MovieImage { get; set; } // uploaded file
+        public IFormFile MovieImage { get; set; }
+
+        [BindProperty]
+        public IFormFile TrailerFile { get; set; }
 
         public SelectList DirectorList { get; set; }
         public SelectList ActorList { get; set; }
@@ -46,26 +51,40 @@ namespace RazorPagesMovie1.Pages.Movies
                 return Page();
             }
 
-            // Handle image upload
+            // Save poster image
             if (MovieImage != null)
             {
                 var uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
                 Directory.CreateDirectory(uploadsFolder);
-                var fileName = Path.GetFileName(MovieImage.FileName);
-                var filePath = Path.Combine(uploadsFolder, fileName);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    await MovieImage.CopyToAsync(fileStream);
-                }
+                var uniqueName = Guid.NewGuid() + Path.GetExtension(MovieImage.FileName);
+                var filePath = Path.Combine(uploadsFolder, uniqueName);
 
-                Movie.ImageUrl = "/images/" + fileName; // save relative path
+                using var stream = new FileStream(filePath, FileMode.Create);
+                await MovieImage.CopyToAsync(stream);
+
+                Movie.ImageUrl = "/images/" + uniqueName;
+            }
+
+            // Save trailer
+            if (TrailerFile != null)
+            {
+                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "trailers");
+                Directory.CreateDirectory(uploadsFolder);
+
+                var uniqueName = Guid.NewGuid() + Path.GetExtension(TrailerFile.FileName);
+                var filePath = Path.Combine(uploadsFolder, uniqueName);
+
+                using var stream = new FileStream(filePath, FileMode.Create);
+                await TrailerFile.CopyToAsync(stream);
+
+                Movie.Trail = "/uploads/trailers/" + uniqueName;
             }
 
             _context.Movie.Add(Movie);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Movies/Index");
         }
     }
 }

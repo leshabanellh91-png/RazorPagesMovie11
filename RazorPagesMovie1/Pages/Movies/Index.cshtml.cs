@@ -60,6 +60,24 @@ namespace RazorPagesMovie1.Pages.Movies
             Genre = new SelectList(await genreQuery.Distinct().ToListAsync());
 
             Movies = await movies.ToListAsync();
+
+
         }
+        public async Task<IActionResult> OnPostRandomPickAsync()
+        {
+            // Get all movie IDs
+            var movieIds = await _context.Movie.Select(m => m.Id).ToListAsync();
+
+            if (!movieIds.Any())
+                return Page(); // No movies available
+
+            // Pick a random movie
+            var random = new Random();
+            int randomId = movieIds[random.Next(movieIds.Count)];
+
+            // Redirect to Details page for the selected movie
+            return RedirectToPage("/Movies/Details", new { id = randomId });
+        }
+
     }
 }
