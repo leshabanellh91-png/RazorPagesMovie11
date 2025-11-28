@@ -16,6 +16,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Movie.Id" />
 
+            <div class="mb-3">
+                <label asp-for="Movie.TrailerUrl" class="form-label">Trailer URL (YouTube embed link)</label>
+                <input asp-for="Movie.TrailerUrl" class="form-control" placeholder="https://www.youtube.com/embed/VIDEO_ID" />
+            </div>
+
             <div class="form-group">
                 <label asp-for="Movie.Title" class="control-label"></label>
                 <input asp-for="Movie.Title" class="form-control" />
@@ -67,6 +72,15 @@
                 <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
+
+        <!-- Trailer Section -->
+        @if (!string.IsNullOrEmpty(Model.Movie.TrailerUrl))
+        {
+            <div class="ratio ratio-16x9 mb-3 mt-4">
+                <iframe src="@Model.Movie.TrailerUrl" title="@Model.Movie.Title Trailer" allowfullscreen></iframe>
+            </div>
+        }
+
     </div>
 </div>
 
