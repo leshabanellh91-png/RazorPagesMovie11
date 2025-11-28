@@ -41,6 +41,7 @@ namespace RazorPagesMovie.Models
         public string? ImageUrl { get; set; }
         public ICollection<Booking> Bookings { get; set; }
         public string Trail { get; set; }
+        public bool Isfavorite { get; set; }
 
 
 
