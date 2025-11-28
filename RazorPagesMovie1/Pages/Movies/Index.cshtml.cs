@@ -78,6 +78,19 @@ namespace RazorPagesMovie1.Pages.Movies
             // Redirect to Details page for the selected movie
             return RedirectToPage("/Movies/Details", new { id = randomId });
         }
+        public async Task<IActionResult> OnPostToggleFavoriteAsync(int id)
+        {
+            var movie = await _context.Movie.FindAsync(id);
+            if (movie == null)
+                return NotFound();
+
+            movie.Isfavorite = !movie.Isfavorite;
+            _context.Movie.Update(movie);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage();
+        }
+
 
     }
 }

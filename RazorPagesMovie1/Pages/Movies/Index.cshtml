@@ -70,7 +70,23 @@
                         <p><strong>Actor:</strong> @item.Actor?.FirstName @item.Actor?.LastName</p>
                         <p><strong>Director:</strong> @item.Director?.Name</p>
 
-                        <div class="mt-auto pt-2">
+                        <!-- Buttons -->
+                        <div class="mt-auto pt-2 d-flex flex-wrap gap-1">
+                            <!-- Favorite Button -->
+                            <form method="post" asp-page-handler="ToggleFavorite" asp-route-id="@item.Id">
+                                <button type="submit" class="btn btn-outline-danger me-1">
+                                    @if(item.Isfavorite)
+                                    {
+                                        <i class="fas fa-heart"></i> <!-- Filled heart -->
+                                    }
+                                    else
+                                    {
+                                        <i class="far fa-heart"></i> <!-- Empty heart -->
+                                    }
+                                </button>
+                            </form>
+
+                            <!-- Other buttons -->
                             <a asp-page="/Movies/Details" asp-route-id="@item.Id" class="btn btn-info me-1">Details</a>
                             <a asp-page="/Movies/Edit" asp-route-id="@item.Id" class="btn btn-warning me-1">Edit</a>
                             <a asp-page="/Movies/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
