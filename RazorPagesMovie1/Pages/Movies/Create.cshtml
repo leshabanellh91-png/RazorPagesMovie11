@@ -12,8 +12,6 @@
         <input asp-for="Movie.Title" class="form-control" />
         <span asp-validation-for="Movie.Title" class="text-danger"></span>
     </div>
-    
-
 
     <div class="form-group">
         <label asp-for="Movie.Genre"></label>
@@ -23,7 +21,7 @@
 
     <div class="form-group">
         <label asp-for="Movie.ReleaseDate"></label>
-        <input asp-for="Movie.ReleaseDate" class="form-control" type="date" />
+        <input asp-for="Movie.ReleaseDate" type="date" class="form-control" />
         <span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>
     </div>
 
@@ -52,10 +50,14 @@
     <div class="form-group">
         <label>Movie Poster</label>
         <input type="file" asp-for="MovieImage" class="form-control" />
-        <span asp-validation-for="MovieImage" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create</button>
+    <div class="form-group">
+        <label>Upload Trailer</label>
+        <input type="file" asp-for="TrailerFile" class="form-control" accept="video/*" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Create</button>
 </form>
 
 @section Scripts {

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie1.Data;
@@ -7,6 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add Razor Pages
 builder.Services.AddRazorPages();
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 268435456; // 256 MB, adjust as needed
+});
+
 
 // Add EF Core + SQL Server
 builder.Services.AddDbContext<RazorPagesMovie1Context>(options =>
