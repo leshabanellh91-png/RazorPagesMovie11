@@ -40,7 +40,8 @@ namespace RazorPagesMovie.Models
         // New property for movie poster image URL
         public string? ImageUrl { get; set; }
         public ICollection<Booking> Bookings { get; set; }
-        public string TrailerUrl { get; set; } = string.Empty; // YouTube embed link
+        public string TrailerUrl { get; set; }
+
 
     }
 }

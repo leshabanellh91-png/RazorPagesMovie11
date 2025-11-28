@@ -21,6 +21,36 @@ namespace RazorPagesMovie1.Pages.Movies
 
         [BindProperty]
         public Movie Movie { get; set; }
+        public string GetEmbedUrl(string url)
+        {
+            if (string.IsNullOrEmpty(url))
+                return url;
+
+            if (url.Contains("watch?v="))
+                return url.Replace("watch?v=", "embed/");
+            if (url.Contains("youtu.be"))
+                return url.Replace("youtu.be/", "www.youtube.com/embed/");
+            if (url.Contains("/shorts/"))
+                return url.Replace("/shorts/", "embed/");
+
+            return url;
+        }
+         
+
+    public string RemoveEmbedUrl(string url)
+        {
+            if (string.IsNullOrEmpty(url))
+                return url;
+
+            if (url.Contains("/embed/"))
+                return url.Replace("/embed/", "watch?v=");
+
+            return url;
+        }
+
+        // OnGet, OnPost, etc...
+    
+
 
         // Bound file input
         [BindProperty]
