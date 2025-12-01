@@ -43,6 +43,12 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Movie.Rating)
         </dd>
+
+        <dt class="col-sm-2">Favourite</dt>
+        <dd class="col-sm-10">
+            @(Model.Movie.Isfavorite ? "Yes" : "No")
+        </dd>
+
         <p><strong>Total Bookings:</strong> @Model.Movie.Bookings?.Count()</p>
     </dl>
 

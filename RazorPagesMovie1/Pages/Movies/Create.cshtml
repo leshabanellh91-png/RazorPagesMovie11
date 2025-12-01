@@ -57,6 +57,12 @@
         <label>Upload Trailer</label>
         <input type="file" asp-for="TrailerFile" class="form-control" accept="video/*" />
     </div>
+    <div class="form-check mb-3">
+        <input class="form-check-input" asp-for="Movie.Isfavorite" />
+        <label class="form-check-label" asp-for="Movie.Isfavorite">Favourite</label>
+    </div>
+
+
 
     <button type="submit" class="btn btn-primary mt-3">Create</button>
     <a asp-page="./Index" class="btn btn-secondary mt-3">Cancel</a>
