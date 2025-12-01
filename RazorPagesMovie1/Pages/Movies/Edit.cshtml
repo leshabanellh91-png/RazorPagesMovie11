@@ -1,72 +1,87 @@
 ﻿@page "{id:int}"
 @model RazorPagesMovie1.Pages.Movies.EditModel
 
-
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Movie";
 }
 
-<h1>Edit</h1>
-
-<h4>Movie</h4>
+<h1>Edit Movie</h1>
 <hr />
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
+
         <form method="post" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <input type="hidden" asp-for="Movie.Id" />
 
-            <div class="form-group">
-                <label>Upload Trailer</label>
-                <input type="file" name="TrailerFile" class="form-control" accept="video/*" />
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Movie.Title" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="Movie.Title"></label>
                 <input asp-for="Movie.Title" class="form-control" />
                 <span asp-validation-for="Movie.Title" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Movie.ReleaseDate" class="control-label"></label>
-                <input asp-for="Movie.ReleaseDate" class="form-control" type="date" />
+            <div class="form-group mb-3">
+                <label asp-for="Movie.ReleaseDate"></label>
+                <input asp-for="Movie.ReleaseDate" type="date" class="form-control" />
                 <span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Movie.Genre" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="Movie.Genre"></label>
                 <input asp-for="Movie.Genre" class="form-control" />
                 <span asp-validation-for="Movie.Genre" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Movie.Price" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="Movie.Price"></label>
                 <input asp-for="Movie.Price" class="form-control" />
                 <span asp-validation-for="Movie.Price" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Movie.Rating" class="control-label"></label>
+            <div class="form-group mb-3">
+                <label asp-for="Movie.Rating"></label>
                 <input asp-for="Movie.Rating" class="form-control" />
                 <span asp-validation-for="Movie.Rating" class="text-danger"></span>
             </div>
 
-            <!-- NEW IMAGE UPLOAD -->
+            <!-- Existing Poster -->
+            @if (!string.IsNullOrEmpty(Model.Movie.ImageUrl))
+            {
+                <div class="mb-3">
+                    <label>Current Poster</label><br />
+                    <img src="@Model.Movie.ImageUrl" width="180" class="img-thumbnail" />
+                </div>
+            }
+
             <div class="form-group mb-3">
-                <label>Upload New Poster:</label>
-                <input type="file" asp-for="MovieImage" class="form-control" />
-                <span asp-validation-for="MovieImage" class="text-danger"></span>
+                <label>Upload New Poster</label>
+                <input type="file" asp-for="MovieImage" class="form-control" accept="image/*" />
             </div>
 
-            <div class="form-group mt-3">
-                <input type="submit" value="Save" class="btn btn-primary" />
-                <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+            <!-- Existing Trailer -->
+            @if (!string.IsNullOrEmpty(Model.Movie.Trail))
+            {
+                <div class="mb-3">
+                    <label>Current Trailer</label><br />
+                    <video width="320" height="180" controls>
+                        <source src="@Model.Movie.Trail" type="video/mp4">
+                    </video>
+                </div>
+            }
+
+            <div class="form-group mb-3">
+                <label>Upload New Trailer</label>
+                <input type="file" asp-for="TrailerFile" class="form-control" accept="video/*" />
             </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+
         </form>
     </div>
 </div>
 
 @section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <partial name="_ValidationScriptsPartial" />
 }

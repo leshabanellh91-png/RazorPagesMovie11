@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Models;
 using RazorPagesMovie1.Data;
 using RazorPagesMovie1.Models;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace RazorPagesMovie1.Pages.Movies
 {
@@ -30,10 +33,13 @@ namespace RazorPagesMovie1.Pages.Movies
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
             Movie = await _context.Movie.FindAsync(id);
-            if (Movie == null) return NotFound();
+
+            if (Movie == null)
+                return NotFound();
 
             return Page();
         }
@@ -47,45 +53,46 @@ namespace RazorPagesMovie1.Pages.Movies
             if (movieToUpdate == null)
                 return NotFound();
 
-            // Update text fields
+            // Update simple fields
             movieToUpdate.Title = Movie.Title;
             movieToUpdate.ReleaseDate = Movie.ReleaseDate;
             movieToUpdate.Genre = Movie.Genre;
             movieToUpdate.Price = Movie.Price;
             movieToUpdate.Rating = Movie.Rating;
+            movieToUpdate.DirectorId = Movie.DirectorId;
+            movieToUpdate.ActorId = Movie.ActorId;
 
-            // Update image if uploaded
+            // Update poster file
             if (MovieImage != null)
             {
-                string uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
-                Directory.CreateDirectory(uploadsFolder);
+                var folder = Path.Combine(_environment.WebRootPath, "images");
+                Directory.CreateDirectory(folder);
 
-                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(MovieImage.FileName);
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                string uniqueName = Guid.NewGuid() + Path.GetExtension(MovieImage.FileName);
+                string path = Path.Combine(folder, uniqueName);
 
-                using var fileStream = new FileStream(filePath, FileMode.Create);
-                await MovieImage.CopyToAsync(fileStream);
+                using var fs = new FileStream(path, FileMode.Create);
+                await MovieImage.CopyToAsync(fs);
 
-                movieToUpdate.ImageUrl = "/images/" + uniqueFileName;
+                movieToUpdate.ImageUrl = "/images/" + uniqueName;
             }
 
-            // Update trailer if uploaded
+            // Update trailer file
             if (TrailerFile != null)
             {
-                string uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "trailers");
-                Directory.CreateDirectory(uploadsFolder);
+                var folder = Path.Combine(_environment.WebRootPath, "uploads", "trailers");
+                Directory.CreateDirectory(folder);
 
-                string uniqueFileName = Guid.NewGuid() + Path.GetExtension(TrailerFile.FileName);
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                string uniqueName = Guid.NewGuid() + Path.GetExtension(TrailerFile.FileName);
+                string path = Path.Combine(folder, uniqueName);
 
-                using var fileStream = new FileStream(filePath, FileMode.Create);
-                await TrailerFile.CopyToAsync(fileStream);
+                using var fs = new FileStream(path, FileMode.Create);
+                await TrailerFile.CopyToAsync(fs);
 
-                movieToUpdate.Trail = "/uploads/trailers/" + uniqueFileName;
+                movieToUpdate.Trail = "/uploads/trailers/" + uniqueName;
             }
 
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

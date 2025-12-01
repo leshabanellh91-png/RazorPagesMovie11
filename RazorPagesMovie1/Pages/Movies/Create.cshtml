@@ -6,58 +6,60 @@
 
 <h1>Create Movie</h1>
 
-<form method="post" enctype="multipart/form-data">
-    <div class="form-group">
+<form method="post" enctype="multipart/form-data" class="mt-4">
+
+    <div class="form-group mb-3">
         <label asp-for="Movie.Title"></label>
         <input asp-for="Movie.Title" class="form-control" />
         <span asp-validation-for="Movie.Title" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label asp-for="Movie.Genre"></label>
         <input asp-for="Movie.Genre" class="form-control" />
         <span asp-validation-for="Movie.Genre" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label asp-for="Movie.ReleaseDate"></label>
         <input asp-for="Movie.ReleaseDate" type="date" class="form-control" />
         <span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label asp-for="Movie.Price"></label>
         <input asp-for="Movie.Price" class="form-control" />
         <span asp-validation-for="Movie.Price" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label asp-for="Movie.Rating"></label>
         <input asp-for="Movie.Rating" class="form-control" />
         <span asp-validation-for="Movie.Rating" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label>Director</label>
         <select asp-for="Movie.DirectorId" asp-items="Model.DirectorList" class="form-control"></select>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label>Actor</label>
         <select asp-for="Movie.ActorId" asp-items="Model.ActorList" class="form-control"></select>
     </div>
 
-    <div class="form-group">
-        <label>Movie Poster</label>
-        <input type="file" asp-for="MovieImage" class="form-control" />
+    <div class="form-group mb-3">
+        <label>Upload Movie Poster</label>
+        <input type="file" asp-for="MovieImage" accept="image/*" class="form-control" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label>Upload Trailer</label>
         <input type="file" asp-for="TrailerFile" class="form-control" accept="video/*" />
     </div>
 
     <button type="submit" class="btn btn-primary mt-3">Create</button>
+    <a asp-page="./Index" class="btn btn-secondary mt-3">Cancel</a>
 </form>
 
 @section Scripts {
