@@ -21,8 +21,9 @@ namespace RazorPagesMovie1.Pages.Bookings
         public async Task OnGetAsync()
         {
             Bookings = await _context.Bookings
-                .Include(b => b.Movie) // Include Movie to access title/genre
-                .ToListAsync();
+                            .Include(b => b.Movie) // <-- Important: Include related Movie entity
+                            .ToListAsync();
         }
+
     }
 }
