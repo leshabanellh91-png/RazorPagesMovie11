@@ -51,36 +51,43 @@ namespace RazorPagesMovie1.Pages.Movies
                 return Page();
             }
 
-            // Save poster image
+            // -------------------------------
+            // ✅ STEP 3: SAVE MOVIE POSTER IMAGE
+            // -------------------------------
             if (MovieImage != null)
             {
                 var uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
                 Directory.CreateDirectory(uploadsFolder);
 
-                var uniqueName = Guid.NewGuid() + Path.GetExtension(MovieImage.FileName);
-                var filePath = Path.Combine(uploadsFolder, uniqueName);
+                var uniqueFileName = Guid.NewGuid() + Path.GetExtension(MovieImage.FileName);
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
                 using var stream = new FileStream(filePath, FileMode.Create);
                 await MovieImage.CopyToAsync(stream);
 
-                Movie.ImageUrl = "/images/" + uniqueName;
+                // Save URL
+                Movie.ImageUrl = "/images/" + uniqueFileName;
             }
 
-            // Save trailer
+            // -------------------------------
+            // 🎬 SAVE TRAILER (video file)
+            // -------------------------------
             if (TrailerFile != null)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "trailers");
-                Directory.CreateDirectory(uploadsFolder);
+                var trailerFolder = Path.Combine(_environment.WebRootPath, "trailers");
+                Directory.CreateDirectory(trailerFolder);
 
-                var uniqueName = Guid.NewGuid() + Path.GetExtension(TrailerFile.FileName);
-                var filePath = Path.Combine(uploadsFolder, uniqueName);
+                var uniqueFileName = Guid.NewGuid() + Path.GetExtension(TrailerFile.FileName);
+                var filePath = Path.Combine(trailerFolder, uniqueFileName);
 
                 using var stream = new FileStream(filePath, FileMode.Create);
                 await TrailerFile.CopyToAsync(stream);
 
-                Movie.Trail = "/uploads/trailers/" + uniqueName;
+                // Save trailer URL (correct property)
+                Movie.Trail = "/trail/" + uniqueFileName;
             }
 
+            // SAVE MOVIE
             _context.Movie.Add(Movie);
             await _context.SaveChangesAsync();
 

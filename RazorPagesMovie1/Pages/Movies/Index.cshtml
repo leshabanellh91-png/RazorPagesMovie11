@@ -1,4 +1,5 @@
 ﻿@page
+@using RazorPagesMovie.Models
 @model RazorPagesMovie1.Pages.Movies.IndexModel
 
 @{
@@ -7,12 +8,12 @@
 
 <h1 class="mb-4">🎬 Movies</h1>
 
+<!-- Add New Movie Button -->
 <a asp-page="/Movies/Create" class="btn btn-success mb-3">+ Add New Movie</a>
 
 <!-- Filters -->
 <div class="card shadow-sm mb-4">
     <div class="card-body">
-        <!-- Filter Form -->
         <form method="get" class="row gy-2 gx-3 align-items-end">
             <div class="col-md-3">
                 <label class="form-label fw-semibold">Genre</label>
@@ -20,16 +21,18 @@
                     <option value="">All</option>
                 </select>
             </div>
+
             <div class="col-md-5">
                 <label class="form-label fw-semibold">Title</label>
                 <input type="text" asp-for="SearchString" class="form-control" placeholder="Search movie…" />
             </div>
+
             <div class="col-md-2">
                 <button type="submit" class="btn btn-dark w-100">Filter</button>
             </div>
         </form>
 
-        <!-- Surprise Me Button (separate POST form) -->
+        <!-- Surprise Me Button -->
         <form method="post" asp-page-handler="RandomPick" class="mt-3">
             <button type="submit" class="btn btn-warning">
                 🎲 Surprise Me! Pick a Random Movie
@@ -38,7 +41,7 @@
     </div>
 </div>
 
-<!-- Movie List -->
+<!-- Movie Cards -->
 <div class="row g-4">
     @if (!Model.Movies.Any())
     {
@@ -53,14 +56,39 @@
         @foreach (var item in Model.Movies)
         {
             <div class="col-md-6 col-lg-4">
-                <div class="card movie-card shadow-sm h-100">
-                    <!-- Poster -->
-                    <img src="@(!string.IsNullOrEmpty(item.ImageUrl) ? item.ImageUrl : "/images/placeholder.png")"
+                <div class="card movie-card shadow-sm h-100 position-relative">
+
+                    <!-- Movie Image -->
+                    <img src="@(!string.IsNullOrEmpty(item.ImageUrl) ? $"~/images/{item.ImageUrl}" : "/images/placeholder.png")"
                          class="card-img-top movie-img"
                          alt="@item.Title" />
 
+                    <!-- Favourite Button -->
+                    <div class="position-absolute top-0 end-0 p-2">
+                        <form method="post" asp-page-handler="ToggleFavorite" asp-route-id="@item.Id">
+                            <button type="submit" class="btn btn-light rounded-circle shadow">
+                                @if (item.Isfavorite)
+                                {
+                                    <i class="fas fa-heart text-danger"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-heart"></i>
+                                }
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Movie Info -->
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">@item.Title</h5>
+
+                        <!-- Favourite Badge -->
+                        @if (item.Isfavorite)
+                        {
+                            <span class="badge bg-warning text-dark mb-2">⭐ Favourite</span>
+                        }
+
                         <p class="mb-2">@item.ReleaseDate.ToString("yyyy/MM/dd")</p>
                         <p class="mb-1"><span class="badge bg-secondary">@item.Genre</span></p>
                         <p class="fw-bold">Price: <span class="text-success">@item.Price</span></p>
@@ -70,23 +98,20 @@
                         <p><strong>Actor:</strong> @item.Actor?.FirstName @item.Actor?.LastName</p>
                         <p><strong>Director:</strong> @item.Director?.Name</p>
 
-                        <!-- Buttons -->
-                        <div class="mt-auto pt-2 d-flex flex-wrap gap-1">
-                            <!-- Favorite Button -->
-                            <form method="post" asp-page-handler="ToggleFavorite" asp-route-id="@item.Id">
-                                <button type="submit" class="btn btn-outline-danger me-1">
-                                    @if(item.Isfavorite)
-                                    {
-                                        <i class="fas fa-heart"></i> <!-- Filled heart -->
-                                    }
-                                    else
-                                    {
-                                        <i class="far fa-heart"></i> <!-- Empty heart -->
-                                    }
-                                </button>
-                            </form>
+                        <!-- Trailer Button -->
+                        @if (!string.IsNullOrEmpty(item.Trail))
+                        {
+                            <a href="@item.Trail" target="_blank" class="btn btn-outline-primary mb-2">
+                                🎥 Watch Trailer
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">No trailer available</span>
+                        }
 
-                            <!-- Other buttons -->
+                        <!-- Action Buttons -->
+                        <div class="mt-auto pt-2 d-flex flex-wrap gap-1">
                             <a asp-page="/Movies/Details" asp-route-id="@item.Id" class="btn btn-info me-1">Details</a>
                             <a asp-page="/Movies/Edit" asp-route-id="@item.Id" class="btn btn-warning me-1">Edit</a>
                             <a asp-page="/Movies/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
@@ -97,3 +122,15 @@
         }
     }
 </div>
+
+<style>
+    .movie-card {
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .movie-img {
+        height: 320px;
+        object-fit: cover;
+    }
+</style>

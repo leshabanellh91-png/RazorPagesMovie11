@@ -69,7 +69,7 @@ namespace RazorPagesMovie1.Models
                             Rating = "PG",
                             DirectorId = robReiner.Id,
                             ActorId = meg.Id,
-                            ImageUrl = "/images/whenharrymetsally.jpg"
+                            ImageUrl = "/images/sally3.jpg"
                         },
                         new Movie
                         {
@@ -80,7 +80,7 @@ namespace RazorPagesMovie1.Models
                             Rating = "PG",
                             DirectorId = moriswiSimon.Id,
                             ActorId = leo.Id,
-                            ImageUrl = "/images/inception.jpg"
+                            ImageUrl = "/images/inception11.jpg"
                         },
                         new Movie
                         {
@@ -91,7 +91,7 @@ namespace RazorPagesMovie1.Models
                             Rating = "PG",
                             DirectorId = leratoLee.Id,
                             ActorId = meg.Id,
-                            ImageUrl = "/images/et.jpg"
+                            ImageUrl = "/images/e.t 2.jpg"
                         },
                         new Movie
                         {
@@ -102,7 +102,7 @@ namespace RazorPagesMovie1.Models
                             Rating = "PG",
                             DirectorId = lucyMmasa.Id,
                             ActorId = matthew.Id,
-                            ImageUrl = "/images/interstellar.jpg"
+                            ImageUrl = "/images/intersellar2.jpg"
                         },
                         new Movie
                         {
@@ -113,7 +113,7 @@ namespace RazorPagesMovie1.Models
                             Rating = "PG",
                             DirectorId = mphoNkuna.Id,
                             ActorId = samuel.Id,
-                            ImageUrl = "/images/pulpfiction.jpg"
+                            ImageUrl = "/images/pulp fiction12.jpg"
                         },
                         new Movie
                         {
@@ -124,7 +124,7 @@ namespace RazorPagesMovie1.Models
                             Rating = "PG",
                             DirectorId = mothibaFortunate.Id,
                             ActorId = jamie.Id,
-                            ImageUrl = "/images/django.jpg"
+                            ImageUrl = "/images/django 1.jpg"
                         }
                     );
                     context.SaveChanges();
