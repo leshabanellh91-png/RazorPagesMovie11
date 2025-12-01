@@ -1,5 +1,7 @@
 ﻿@page
 @model RazorPagesMovie1.Pages.Bookings.IndexModel
+@using System.Globalization
+
 
 @{
     ViewData["Title"] = "Bookings";
@@ -40,22 +42,23 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Movie.Genre)
+                    @Html.DisplayFor(modelItem => item.Movie.Title)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.UserId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BookingDate)
+                    @item.BookingDate.ToString("d")
+
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ShowTime)
+                    @item.ShowTime.ToString("h:mm tt")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NumberOfTickets)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                    @item.TotalPrice.ToString("C", CultureInfo.CreateSpecificCulture("en-ZA"))
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

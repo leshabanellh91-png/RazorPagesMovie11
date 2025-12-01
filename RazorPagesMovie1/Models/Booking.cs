@@ -1,7 +1,6 @@
-﻿using RazorMovieProject.Models;
-using RazorPagesMovie.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using RazorPagesMovie.Models;
 
 namespace RazorMovieProject.Models
 {
@@ -11,9 +10,12 @@ namespace RazorMovieProject.Models
 
         [Required]
         public int MovieId { get; set; }
-        public required Movie Movie { get; set; }
 
-        public required string UserId { get; set; }
+        // Make navigation property OPTIONAL
+        public Movie? Movie { get; set; }
+
+        [Required]
+        public string UserId { get; set; } = string.Empty;
 
         public DateTime BookingDate { get; set; } = DateTime.Now;
 
@@ -22,14 +24,12 @@ namespace RazorMovieProject.Models
 
         public string PaymentStatus { get; set; } = "Pending";
 
-
         [Required]
         [Range(1, 20)]
         public int NumberOfTickets { get; set; }
 
         [Required]
-        public required string SeatNumbers { get; set; } // eg: A1,A2,A3
-
+        public string SeatNumbers { get; set; } = string.Empty;
 
         [DataType(DataType.Currency)]
         public decimal TotalPrice { get; set; }
