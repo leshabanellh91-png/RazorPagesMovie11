@@ -50,6 +50,15 @@
                 No movies found.
             </div>
         </div>
+        @if (!Model.Movies.Any())
+        {
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    Displaying movies
+                </div>
+            </div>
+        }
+
     }
     else
     {
