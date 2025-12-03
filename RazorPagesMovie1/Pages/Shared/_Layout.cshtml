@@ -35,9 +35,8 @@
                             <a class="nav-link" asp-page="/Movies/Index">Movies</a>
 
                             <!-- Correct Link for Login and Register in Razor Pages -->
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Account/Login">Login</a>
-                        </li>
+                            <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-page="/Account/Register">Register</a>
                         </li>
