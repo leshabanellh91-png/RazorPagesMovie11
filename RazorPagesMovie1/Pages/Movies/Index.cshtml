@@ -9,7 +9,10 @@
 <h1 class="mb-4">🎬 Movies</h1>
 
 <!-- Add New Movie Button -->
-<a asp-page="/Movies/Create" class="btn btn-success mb-3">+ Add New Movie</a>
+@if (User.IsInRole("Admin"))
+{
+    <a asp-page="/Movies/Create" class="btn btn-success mb-3">+ Add New Movie</a>
+}
 
 <!-- Filters -->
 <div class="card shadow-sm mb-4">
@@ -122,8 +125,11 @@
                         <!-- Action Buttons -->
                         <div class="mt-auto pt-2 d-flex flex-wrap gap-1">
                             <a asp-page="/Movies/Details" asp-route-id="@item.Id" class="btn btn-info me-1">Details</a>
-                            <a asp-page="/Movies/Edit" asp-route-id="@item.Id" class="btn btn-warning me-1">Edit</a>
-                            <a asp-page="/Movies/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-page="/Movies/Edit" asp-route-id="@item.Id" class="btn btn-warning me-1">Edit</a>
+                                <a asp-page="/Movies/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            }
                         </div>
                     </div>
                 </div>
