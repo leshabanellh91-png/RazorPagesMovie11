@@ -23,6 +23,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("ApplicationDbContextConnection")));
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+});
+
+
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 
 { 

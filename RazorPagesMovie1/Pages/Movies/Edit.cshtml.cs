@@ -8,9 +8,11 @@ using RazorPagesMovie1.Models;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RazorPagesMovie1.Pages.Movies
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly RazorPagesMovie1Context _context;
