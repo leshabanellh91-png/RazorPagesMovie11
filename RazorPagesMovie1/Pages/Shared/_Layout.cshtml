@@ -25,9 +25,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Movies/Index">Movies</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-page="/Movies/Index">Movies</a>
+                            </li>
+                        }
+
 
                         @if (User.Identity.IsAuthenticated)
                         {
