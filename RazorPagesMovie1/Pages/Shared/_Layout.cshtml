@@ -7,9 +7,7 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
 </head>
 
 <body>
@@ -26,42 +24,46 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-page="/Index">Home</a>
-
-
-						<li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Movies/Index">Movies</a>
-
-                            <!-- Correct Link for Login and Register in Razor Pages -->
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
-						</li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Account/Register">Register</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-page="/Movies/Index">Movies</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <form asp-area="Identity" asp-page="/Account/Logout" method="post" class="d-inline">
+                                    <button type="submit" class="nav-link btn btn-link text-light" style="text-decoration:none;">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </li>
+                        }
+
+                        
                         <li class="nav-item">
                             <a class="nav-link text-light" href="/About">About Us</a>
                         </li>
-
-                        
                         
                         <!-- BOOKINGS (NEW) -->
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-page="/Bookings/Index">Bookings</a>
                         </li>
-                        <partial name="_LoginPartial" />
-                   
-
-                       
-
                     </ul>
-
-                    
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-
 
     <div class="container">
         <main role="main" class="pb-3">
@@ -73,11 +75,9 @@
 
     <footer class="border-top footer text-light bg-dark mt-4">
         <div class="container">
-           
+            <!-- Footer content (if any) -->
         </div>
     </footer>
-
-    </div>
 
     <!-- Make sure Bootstrap JS is loaded -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
