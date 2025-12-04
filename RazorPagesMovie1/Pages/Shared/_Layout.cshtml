@@ -54,10 +54,13 @@
                             <a class="nav-link text-light" href="/About">About Us</a>
                         </li>
                         
-                        <!-- BOOKINGS (NEW) -->
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Bookings/Index">Bookings</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-page="/Bookings/Index">Bookings</a>
+                            </li>
+                        }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
