@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-page="/Index">Blockbusters</a>
+                <a class="navbar-brand" asp-page="/Index" id="brand">Blockbusters</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -22,51 +22,78 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Index">Home</a>
+                            <a class="nav-link text-light" asp-page="/Index" id="home">Home</a>
                         </li>
+
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-page="/Movies/Index">Movies</a>
+                                <a class="nav-link text-light" asp-page="/Movies/Index" id="movies">Movies</a>
                             </li>
                         }
 
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/About" id="about">About Us</a>
+                        </li>
 
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <form asp-area="Identity" asp-page="/Account/Logout" method="post" class="d-inline">
-                                    <button type="submit" class="nav-link btn btn-link text-light" style="text-decoration:none;">
-                                        Logout
-                                    </button>
-                                </form>
+                                <a class="nav-link text-light" asp-page="/Bookings/Index" id="bookings">Bookings</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login" id="login">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                            </li>
-                        }
-
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="/About">About Us</a>
-                        </li>
-                        
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-page="/Bookings/Index">Bookings</a>
+                                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register" id="register">Register</a>
                             </li>
                         }
 
                     </ul>
-                    <partial name="_LoginPartial" />
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form asp-area="Identity" asp-page="/Account/Logout" method="post" class="d-inline">
+                            <button type="submit" class="nav-link btn btn-link text-light" style="text-decoration:none;" id="logout">
+                                Logout
+                            </button>
+                        </form>
+                    }
+
+                    <select id="languageSwitcher" class="form-select ms-3" style="width:150px;" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zu">Zulu</option>
+                        <option value="af">Afrikaans</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="sw">Swahili</option>
+                        <option value="de">German</option>
+                        <option value="it">Italian</option>
+                        <option value="nl">Dutch</option>
+                        <option value="ru">Russian</option>
+                        <option value="ar">Arabic</option>
+                        <option value="zh">Chinese</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                        <option value="tl">Filipino</option>
+                        <option value="hi">Hindi</option>
+                        <option value="bn">Bengali</option>
+                        <option value="ur">Urdu</option>
+                        <option value="tr">Turkish</option>
+                        <option value="fa">Persian</option>
+                        <option value="th">Thai</option>
+                        <option value="vi">Vietnamese</option>
+                        <option value="ms">Malay</option>
+                        <option value="el">Greek</option>
+                        <option value="he">Hebrew</option>
+                    </select>
+
                 </div>
             </div>
         </nav>
@@ -81,16 +108,40 @@
     </div>
 
     <footer class="border-top footer text-light bg-dark mt-4">
-        <div class="container">
-            <!-- Footer content (if any) -->
-        </div>
+        <div class="container"></div>
     </footer>
 
-    <!-- Make sure Bootstrap JS is loaded -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     &copy; 2025 - Blockbusters
 
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @RenderSection("Scripts", required: false)
+
+    <!-- FINAL WORKING TRANSLATION SCRIPT -->
+    <script>
+        async function changeLanguage(lang) {
+            localStorage.setItem("siteLanguage", lang);
+
+            const response = await fetch(`/translations/${lang}.json`);
+            const translations = await response.json();
+
+            for (const key in translations) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.innerText = translations[key];
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem("siteLanguage") || "en";
+
+            if (document.getElementById("languageSwitcher")) {
+                document.getElementById("languageSwitcher").value = savedLang;
+            }
+
+            changeLanguage(savedLang);
+        });
+    </script>
+
 </body>
 </html>
