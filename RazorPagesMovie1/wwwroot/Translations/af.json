@@ -1,10 +1,42 @@
 {
+  "welcome": "Welkom by Blockbusters!",
   "home": "Tuis",
+  "aboutUs": "Oor Ons",
   "login": "Teken In",
   "logout": "Teken Uit",
   "register": "Registreer",
-  "bookings": "Besprekings",
-  "about": "Oor Ons",
-  "movies": "Flieks",
-  "brand": "Blockbusters"
+
+  "moreReasonsTitle": "Meer Redes om aan te Sluit",
+
+  "reason1Title": "Geniet op jou TV",
+  "reason1Desc": "Kyk op Smart-TV’s, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray-spelers en meer.",
+
+  "reason2Title": "Laai jou vertonings af",
+  "reason2Desc": "Stoor jou gunstelinge maklik en kyk dit aflyn enige tyd.",
+
+  "reason3Title": "Kyk oral",
+  "reason3Desc": "Stroom onbeperkte films op jou foon, tablet, skootrekenaar en TV.",
+
+  "reason4Title": "Skep profiele vir kinders",
+  "reason4Desc": "Stuur kinders op avonture saam met hul gunstelingkarakters in ’n ruimte net vir hulle — gratis met jou lidmaatskap.",
+
+  "faqTitle": "Gereelde Vrae",
+
+  "faqQ1": "Wat is Blockbusters?",
+  "faqA1": "Blockbusters is 'n intekening-gebaseerde stromingsdiens wat jou toelaat om 'n wye verskeidenheid flieks te kyk op toestelle wat aan die internet gekoppel is.",
+
+  "faqQ2": "Hoeveel kos Blockbusters?",
+  "faqA2": "Blockbusters bied verskeie planne aan, afhangend van die aantal skerms en videokwaliteit. Pryse begin gewoonlik vanaf $9.99 per maand, maar kan per streek verskil.",
+
+  "faqQ3": "Waar kan ek Blockbusters kyk?",
+  "faqA3": "Jy kan Blockbusters kyk op slimfone, tablette, slim-TV’s, rekenaars en speletjiekonsole met 'n internetverbinding.",
+
+  "faqQ4": "Hoe kanselleer ek?",
+  "faqA4": "Jy kan jou Blockbusters-intekening enige tyd kanselleer in jou rekeninginstellings. Daar is geen kansellasiegelde nie.",
+
+  "faqQ5": "Wat kan ek op Blockbusters kyk?",
+  "faqA5": "Blockbusters bied 'n wye reeks flieks.",
+
+  "faqQ6": "Is Blockbusters goed vir kinders?",
+  "faqA6": "Ja, Blockbusters het 'n kinderprofiel wat inhoud beperk en 'n veiliger kykervaring bied."
 }

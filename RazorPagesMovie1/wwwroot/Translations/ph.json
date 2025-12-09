@@ -1,11 +1,42 @@
 {
-  {
-    "home": "Bahay",
-    "login": "Mag-login",
-    "logout": "Mag-logout",
-    "register": "Magrehistro",
-    "bookings": "Mga Booking",
-    "about": "Tungkol sa Amin",
-    "movies": "Mga Pelikula",
-    "brand": "Blockbusters"
-  }
+  "welcome": "Maligayang pagdating sa Blockbusters!",
+  "home": "Pangunahing Pahina",
+  "aboutUs": "Tungkol sa Amin",
+  "login": "Mag-Login",
+  "logout": "Mag-Logout",
+  "register": "Magrehistro",
+
+  "moreReasonsTitle": "Maraming Dahilan para Sumali",
+
+  "reason1Title": "Masiyahan sa iyong TV",
+  "reason1Desc": "Panoorin sa Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, at iba pa.",
+
+  "reason2Title": "I-download ang iyong mga palabas",
+  "reason2Desc": "Madaling i-save ang iyong mga paborito at panoorin offline anumang oras.",
+
+  "reason3Title": "Panoorin kahit saan",
+  "reason3Desc": "Mag-stream ng walang limitasyong mga pelikula sa iyong telepono, tablet, laptop, at TV.",
+
+  "reason4Title": "Gumawa ng profiles para sa mga bata",
+  "reason4Desc": "Ipadala ang mga bata sa mga pakikipagsapalaran kasama ang kanilang mga paboritong karakter sa isang lugar na ginawa para sa kanila — libre sa iyong membership.",
+
+  "faqTitle": "Mga Madalas Itanong",
+
+  "faqQ1": "Ano ang Blockbusters?",
+  "faqA1": "Ang Blockbusters ay isang subscription-based na streaming service na nagbibigay sa iyo ng access sa iba’t ibang pelikula na maaaring panoorin sa mga device na konektado sa internet.",
+
+  "faqQ2": "Magkano ang Blockbusters?",
+  "faqA2": "Nag-aalok ang Blockbusters ng iba’t ibang plano depende sa bilang ng screen at kalidad ng video. Nagsisimula ang presyo sa $9.99 bawat buwan, ngunit maaaring magbago depende sa rehiyon.",
+
+  "faqQ3": "Saan ko maaaring panoorin ang Blockbusters?",
+  "faqA3": "Maaari mong panoorin ang Blockbusters sa mga smartphone, tablet, smart TV, computer, at gaming console na may internet connection.",
+
+  "faqQ4": "Paano ako magka-cancel?",
+  "faqA4": "Maaari mong kanselahin ang iyong subscription anumang oras sa pamamagitan ng settings ng iyong account. Walang cancellation fee.",
+
+  "faqQ5": "Ano ang maaari kong mapanood sa Blockbusters?",
+  "faqA5": "Nag-aalok ang Blockbusters ng malawak na koleksyon ng mga pelikula.",
+
+  "faqQ6": "Ang Blockbusters ba ay mabuti para sa mga bata?",
+  "faqA6": "Oo, may kids profile ang Blockbusters na may restricted content upang maging ligtas ang panonood ng mga bata."
+}

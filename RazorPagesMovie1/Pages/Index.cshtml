@@ -1,7 +1,8 @@
 ﻿@page
 @model IndexModel
 
-<h1>Welcome to Blockbusters Movies</h1>
+<h1 id="welcome">Welcome to Blockbusters!</h1>
+
 
 <!DOCTYPE html>
 
@@ -13,29 +14,7 @@
 </head>
 <body>
 
-    <label for="genre">Genre:</label>
-    <select id="genre" name="genre">
-
-        <option value="action">Action</option>
-        <option value="adventure">Adventure</option>
-        <option value="animation">Animation</option>
-        <option value="comedy">Comedy</option>
-        <option value="crime">Crime</option>
-        <option value="documentary">Documentary</option>
-        <option value="drama">Drama</option>
-        <option value="family">Family</option>
-        <option value="fantasy">Fantasy</option>
-        <option value="history">History</option>
-        <option value="horror">Horror</option>
-        <option value="musical">Musical</option>
-        <option value="mystery">Mystery</option>
-        <option value="romance">Romance</option>
-        <option value="science-fiction">Science Fiction</option>
-        <option value="sports">Sports</option>
-        <option value="thriller">Thriller</option>
-        <option value="war">War</option>
-        <option value="western">Western</option>
-    </select>
+ 
 
 </body>
 </html>
@@ -87,55 +66,58 @@
     </button>
 </div>
 
-<div class="container my-5">
-    <h2 class="mb-4 text-center">More Reasons to Join</h2>
+   <div class="container my-5">
+    <!-- Section Title -->
+    <h2 id="moreReasonsTitle">More Reasons to Join</h2>
 
     <div class="row g-4">
         <!-- Reason 1 -->
         <div class="col-md-6 col-lg-3 text-center">
             <i class="fas fa-tv fa-3x mb-3"></i>
-            <h5>Enjoy on your TV</h5>
-            <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+            <h5 id="reason1Title">Enjoy on your TV</h5>
+            <p id="reason1Desc">Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
         </div>
 
         <!-- Reason 2 -->
         <div class="col-md-6 col-lg-3 text-center">
             <i class="fas fa-download fa-3x mb-3"></i>
-            <h5>Download your shows</h5>
-            <p>Save your favorites easily and watch offline anytime.</p>
+            <h5 id="reason2Title">Download your shows</h5>
+            <p id="reason2Desc">Save your favorites easily and watch offline anytime.</p>
         </div>
 
         <!-- Reason 3 -->
         <div class="col-md-6 col-lg-3 text-center">
             <i class="fas fa-mobile-alt fa-3x mb-3"></i>
-            <h5>Watch everywhere</h5>
-            <p>Stream unlimited movies on your phone, tablet, laptop, and TV.</p>
+            <h5 id="reason3Title">Watch everywhere</h5>
+            <p id="reason3Desc">Stream unlimited movies on your phone, tablet, laptop, and TV.</p>
         </div>
 
         <!-- Reason 4 -->
         <div class="col-md-6 col-lg-3 text-center">
             <i class="fas fa-child fa-3x mb-3"></i>
-            <h5>Create profiles for kids</h5>
-            <p>Send kids on adventures with their favorite characters in a space made just for them — free with your membership.</p>
+            <h5 id="reason4Title">Create profiles for kids</h5>
+            <p id="reason4Desc">Send kids on adventures with their favorite characters in a space made just for them — free with your membership.</p>
         </div>
     </div>
 </div>
 
 
+
 <div class="container my-5">
-    <h2 class="mb-4">Frequently Asked Questions</h2>
+    <h2 class="mb-4" id="faqTitle">Frequently Asked Questions</h2>
 
     <div class="accordion" id="faqAccordion">
+
         <!-- Question 1 -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="faqHeading1">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                <button class="accordion-button collapsed" id="faqQ1" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                     What is Blockbusters?
                 </button>
             </h2>
             <div id="faq1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Blockbusters is a subscription-based streaming service that allows you to watch a wide variety of movies, and more on internet-connected devices.
+                <div class="accordion-body" id="faqA1">
+                    Blockbusters is a subscription-based streaming service that allows you to watch a wide variety of movies on internet-connected devices.
                 </div>
             </div>
         </div>
@@ -143,13 +125,13 @@
         <!-- Question 2 -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="faqHeading2">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                <button class="accordion-button collapsed" id="faqQ2" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                     How much does Blockbusters cost?
                 </button>
             </h2>
-            <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Blockbusters offers multiple plans depending on the number of screens and video quality. Prices typically start from around $9.99 per month, but may vary by region.
+            <div id="faq2" class="accordion-collapse collapse">
+                <div class="accordion-body" id="faqA2">
+                    Blockbusters offers multiple plans depending on the number of screens and video quality. Prices start from around $9.99 per month, but may vary by region.
                 </div>
             </div>
         </div>
@@ -157,12 +139,12 @@
         <!-- Question 3 -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="faqHeading3">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                <button class="accordion-button collapsed" id="faqQ3" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
                     Where can I watch?
                 </button>
             </h2>
-            <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
+            <div id="faq3" class="accordion-collapse collapse">
+                <div class="accordion-body" id="faqA3">
                     You can watch Blockbusters on smartphones, tablets, smart TVs, computers, and gaming consoles with an internet connection.
                 </div>
             </div>
@@ -171,12 +153,12 @@
         <!-- Question 4 -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="faqHeading4">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                <button class="accordion-button collapsed" id="faqQ4" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
                     How do I cancel?
                 </button>
             </h2>
-            <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
+            <div id="faq4" class="accordion-collapse collapse">
+                <div class="accordion-body" id="faqA4">
                     You can cancel your Blockbusters subscription anytime through your account settings. There are no cancellation fees.
                 </div>
             </div>
@@ -185,12 +167,12 @@
         <!-- Question 5 -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="faqHeading5">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                <button class="accordion-button collapsed" id="faqQ5" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
                     What can I watch on Blockbusters?
                 </button>
             </h2>
-            <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
+            <div id="faq5" class="accordion-collapse collapse">
+                <div class="accordion-body" id="faqA5">
                     Blockbusters offers a wide range of movies.
                 </div>
             </div>
@@ -199,19 +181,19 @@
         <!-- Question 6 -->
         <div class="accordion-item">
             <h2 class="accordion-header" id="faqHeading6">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                <button class="accordion-button collapsed" id="faqQ6" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
                     Is Blockbusters good for kids?
                 </button>
             </h2>
-            <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Yes, Blockbusters has a Kids profile feature that restricts content suitable for children and provides a safer viewing experience.
-                </div
+            <div id="faq6" class="accordion-collapse collapse">
+                <div class="accordion-body" id="faqA6">
+                    Yes, Blockbusters has a Kids profile feature that restricts content for children and provides a safer viewing experience.
+                </div>
             </div>
         </div>
 
-        <
-                    <option>Hebrew</option>
+    </div>
+
 
 
                 </select>

@@ -1,10 +1,42 @@
 {
+  "welcome": "Welkom bij Blockbusters!",
   "home": "Home",
+  "aboutUs": "Over Ons",
   "login": "Inloggen",
   "logout": "Uitloggen",
   "register": "Registreren",
-  "bookings": "Boekingen",
-  "about": "Over ons",
-  "movies": "Films",
-  "brand": "Blockbusters"
+
+  "moreReasonsTitle": "Meer redenen om lid te worden",
+
+  "reason1Title": "Geniet op je tv",
+  "reason1Desc": "Bekijk op Smart-tv's, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray-spelers en meer.",
+
+  "reason2Title": "Download je shows",
+  "reason2Desc": "Sla je favorieten eenvoudig op en bekijk ze offline wanneer je maar wilt.",
+
+  "reason3Title": "Bekijk overal",
+  "reason3Desc": "Stream onbeperkt films op je telefoon, tablet, laptop en tv.",
+
+  "reason4Title": "Maak profielen voor kinderen",
+  "reason4Desc": "Stuur kinderen op avonturen met hun favoriete personages in een ruimte die speciaal voor hen is gemaakt — gratis met je lidmaatschap.",
+
+  "faqTitle": "Veelgestelde Vragen",
+
+  "faqQ1": "Wat is Blockbusters?",
+  "faqA1": "Blockbusters is een abonnementsservice voor streaming waarmee je een grote verscheidenheid aan films kunt bekijken op apparaten met internetverbinding.",
+
+  "faqQ2": "Hoeveel kost Blockbusters?",
+  "faqA2": "Blockbusters biedt meerdere abonnementen aan, afhankelijk van het aantal schermen en de videokwaliteit. De prijzen beginnen vanaf €9,99 per maand, maar kunnen per regio verschillen.",
+
+  "faqQ3": "Waar kan ik kijken?",
+  "faqA3": "Je kunt Blockbusters kijken op smartphones, tablets, smart-tv’s, computers en spelconsoles met een internetverbinding.",
+
+  "faqQ4": "Hoe zeg ik op?",
+  "faqA4": "Je kunt je Blockbusters-abonnement op elk moment annuleren via je accountinstellingen. Er zijn geen annuleringskosten.",
+
+  "faqQ5": "Wat kan ik kijken op Blockbusters?",
+  "faqA5": "Blockbusters biedt een breed scala aan films.",
+
+  "faqQ6": "Is Blockbusters goed voor kinderen?",
+  "faqA6": "Ja, Blockbusters heeft een kinderprofiel dat inhoud beperkt en een veiligere kijkervaring biedt."
 }
