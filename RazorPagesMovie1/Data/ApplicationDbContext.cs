@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Models;
 
 namespace RazorPagesMovie1.Data
 {
@@ -11,7 +10,18 @@ namespace RazorPagesMovie1.Data
         {
         }
 
-        // Define DbSets for your entities (e.g., Movies, Users, etc.)
-        public DbSet<Movie> Movies { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // VERY IMPORTANT: Prevent EF from mapping Movie-related entities
+            foreach (var entity in builder.Model.GetEntityTypes().ToList())
+            {
+                if (entity.ClrType.Namespace != "Microsoft.AspNetCore.Identity")
+                {
+                    builder.Model.RemoveEntityType(entity);
+                }
+            }
+        }
     }
 }
