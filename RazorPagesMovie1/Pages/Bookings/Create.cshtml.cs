@@ -19,7 +19,7 @@ namespace RazorPagesMovie1.Pages.Bookings
         [BindProperty]
         public Booking Booking { get; set; } = new Booking
         {
-            Movie = new RazorPagesMovie.Models.Movie(), // Placeholder, will be set by model binding or manually
+            Movie = new RazorPagesMovie1.Models.Movie(), // Placeholder, will be set by model binding or manually
             UserId = string.Empty, // Placeholder, should be set before saving
             SeatNumbers = string.Empty // Placeholder, should be set before saving
         };

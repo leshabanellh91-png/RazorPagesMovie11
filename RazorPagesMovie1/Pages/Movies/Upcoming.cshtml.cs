@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Models;
+using RazorPagesMovie1.Models;
 using RazorPagesMovie1.Data;
 
 namespace RazorPagesMovie.Pages.Movies

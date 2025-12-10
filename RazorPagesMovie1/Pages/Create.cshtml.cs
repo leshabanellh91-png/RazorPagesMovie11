@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using RazorPagesMovie.Models;
+using RazorPagesMovie1.Models;
 using RazorPagesMovie1.Data;
 
 namespace RazorPagesMovie1.Pages

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Models;
 using RazorPagesMovie1.Data;
 using RazorPagesMovie1.Models;
 using System.Collections.Generic;

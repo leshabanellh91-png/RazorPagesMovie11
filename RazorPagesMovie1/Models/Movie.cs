@@ -1,16 +1,16 @@
 ﻿using RazorMovieProject.Models;
-using RazorPagesMovie1.Models;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RazorPagesMovie.Models
+namespace RazorPagesMovie1.Models
 {
     public class Movie
     {
         public int Id { get; set; }
 
-        [StringLength(60, MinimumLength = 3)]
-        [Required]
+        [Required, StringLength(60, MinimumLength = 3)]
         public string Title { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
@@ -18,17 +18,13 @@ namespace RazorPagesMovie.Models
 
         [Range(1, 100)]
         [DataType(DataType.Currency)]
-        [Column(TypeName = "decimal(18, 2)")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
-        [Required]
-        [StringLength(30)]
+        [Required, StringLength(30)]
         public string Genre { get; set; } = string.Empty;
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
-        [StringLength(5)]
-        [Required]
+        [Required, StringLength(5)]
         public string Rating { get; set; } = string.Empty;
 
         public int DirectorId { get; set; }
@@ -37,14 +33,10 @@ namespace RazorPagesMovie.Models
         public int ActorId { get; set; }
         public Actor? Actor { get; set; }
 
-        // New property for movie poster image URL
         public string? ImageUrl { get; set; }
-        public ICollection<Booking> Bookings { get; set; }
-        public string Trail { get; set; }
+        public string? Trail { get; set; }
         public bool Isfavorite { get; set; }
 
-
-
-
+        public ICollection<Booking>? Bookings { get; set; }
     }
 }
