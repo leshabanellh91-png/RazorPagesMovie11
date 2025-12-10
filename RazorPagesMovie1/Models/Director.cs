@@ -1,16 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace RazorPagesMovie.Models;
-
-public class Director
+namespace RazorPagesMovie1.Models
 {
-    public int Id { get; set; }
+    public class Director
+    {
+        public int Id { get; set; }
 
-    [Required]
-    [StringLength(60)]
-    public string Name { get; set; } = string.Empty;
+        [Required, StringLength(60)]
+        public string Name { get; set; } = string.Empty;
 
-    [DataType(DataType.Date)]
-    public DateTime BirthDate { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime BirthDate { get; set; }
+    }
 }

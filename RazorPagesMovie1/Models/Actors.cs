@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace RazorPagesMovie.Models
+namespace RazorPagesMovie1.Models
 {
     public class Actor
     {
@@ -9,18 +9,17 @@ namespace RazorPagesMovie.Models
 
         [Required]
         [Display(Name = "First Name")]
-        public required string FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Last Name")]
-        public required string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
-        [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
-        public required DateTime BirthDate { get; set; }
+        [Display(Name = "Date of Birth")]
+        public DateTime BirthDate { get; set; }
 
         [StringLength(100)]
-        public required string Nationality { get; set; }
-
+        public string Nationality { get; set; } = string.Empty;
     }
 }

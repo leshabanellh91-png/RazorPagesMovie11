@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using RazorPagesMovie.Models;
+using RazorPagesMovie1.Models;
 
 namespace RazorMovieProject.Models
 {

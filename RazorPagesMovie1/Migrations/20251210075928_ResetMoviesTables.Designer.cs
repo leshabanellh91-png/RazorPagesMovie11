@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorPagesMovie1.Data;
 
 #nullable disable
 
-namespace RazorPagesMovie1.Migrations
+namespace RazorPagesMovie1.Migrations.RazorPagesMovie1
 {
     [DbContext(typeof(RazorPagesMovie1Context))]
-    partial class RazorPagesMovie1ContextModelSnapshot : ModelSnapshot
+    [Migration("20251210075928_ResetMoviesTables")]
+    partial class ResetMoviesTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
