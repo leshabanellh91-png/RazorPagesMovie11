@@ -1,9 +1,42 @@
 {
+  "welcome": "Siyakwamukela e-Blockbusters!",
   "home": "Ikhaya",
+  "aboutUs": "Ngathi",
   "login": "Ngena",
   "logout": "Phuma",
   "register": "Bhalisa",
-  "bookings": "Izincwadi",
-  "about": "Ngathi",
-  "welcome": "Siyakwamukela kusayithi yamabhayisikobho"
+
+  "moreReasonsTitle": "Izizathu Ezingaphezulu Zokuhlanganyela",
+
+  "reason1Title": "Jabulela ku-TV yakho",
+  "reason1Desc": "Buka ku-Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, amadivayisi e-Blu-ray, nokunye okuningi.",
+
+  "reason2Title": "Landa izinhlelo zakho",
+  "reason2Desc": "Londoloza izinto ozithandayo kalula bese uzibuka ngaphandle kwe-inthanethi nganoma yisiphi isikhathi.",
+
+  "reason3Title": "Buka noma kuphi",
+  "reason3Desc": "Sakaza ama-movie angenamkhawulo kwifoni yakho, ithebhulethi, ilaptop, ne-TV.",
+
+  "reason4Title": "Dala ama-profiles ezingane",
+  "reason4Desc": "Thumela izingane ezindaweni zokuzijabulisa nezithombe abazincomayo — mahhala ngemvume yakho yokubhalisela.",
+
+  "faqTitle": "Imibuzo Ebuzwa Kaningi",
+
+  "faqQ1": "Uyini i-Blockbusters?",
+  "faqA1": "I-Blockbusters iyinsiza yokusakaza okuqukethwe okudingekayo okudinga ubulungu, evumela ukubuka ama-movie amaningi kumadivayisi axhunywe ku-inthanethi.",
+
+  "faqQ2": "Kubiza malini i-Blockbusters?",
+  "faqA2": "I-Blockbusters inohlelo oluningi kuye ngokuthi zingaki izikrini nekhwalithi yevidiyo. Amanani aqala ku-$9.99 ngenyanga, kodwa angahluka ngokuya ngesifunda.",
+
+  "faqQ3": "Ngingakubuka kuphi?",
+  "faqA3": "Ungabuka i-Blockbusters kuma-smartphone, ama-tablet, ama-smart TV, amakhompyutha kanye nama-console okugembula axhunyiwe ku-inthanethi.",
+
+  "faqQ4": "Ngiyikhansela kanjani?",
+  "faqA4": "Ungayikhansela noma yinini i-akhawunti yakho ye-Blockbusters kusethaphutheni ze-akhawunti. Akukho mali yokukhansela.",
+
+  "faqQ5": "Ngingabuka ini ku-Blockbusters?",
+  "faqA5": "I-Blockbusters inikezela ngezinhlobo ezahlukene zama-movie.",
+
+  "faqQ6": "Ilungele izingane i-Blockbusters?",
+  "faqA6": "Yebo, i-Blockbusters inemodi yezingane evimbela okuqukethwe okungafanele futhi inikeze ukuphepha okwengeziwe."
 }

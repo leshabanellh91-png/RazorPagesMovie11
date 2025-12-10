@@ -1,10 +1,42 @@
 {
+  "welcome": "Karibu Blockbusters!",
   "home": "Nyumbani",
+  "aboutUs": "Kuhusu Sisi",
   "login": "Ingia",
   "logout": "Toka",
   "register": "Jisajili",
-  "bookings": "Booking",
-  "about": "Kuhusu sisi",
-  "welcome": "Karibu kwenye tovuti yetu ya filamu"
-}
 
+  "moreReasonsTitle": "Sababu Zaidi za Kujiunga",
+
+  "reason1Title": "Furahia kwenye TV yako",
+  "reason1Desc": "Tazama kwenye Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, wachezaji wa Blu-ray na zaidi.",
+
+  "reason2Title": "Pakua vipindi vyako",
+  "reason2Desc": "Hifadhi vipendwa vyako kwa urahisi na vitazame bila mtandao wakati wowote.",
+
+  "reason3Title": "Tazama kila mahali",
+  "reason3Desc": "Tambaza filamu zisizo na kikomo kwenye simu yako, kompyuta kibao, laptop, na TV.",
+
+  "reason4Title": "Tengeneza wasifu kwa watoto",
+  "reason4Desc": "Tuma watoto kwenye matukio na wahusika wanapowapenda katika nafasi iliyotengenezwa kwao pekee — bure na uanachama wako.",
+
+  "faqTitle": "Maswali Yanayoulizwa Mara Kwa Mara",
+
+  "faqQ1": "Blockbusters ni nini?",
+  "faqA1": "Blockbusters ni huduma ya kutiririsha kwa usajili inayokuruhusu kutazama aina mbalimbali za filamu kwenye vifaa vinavyounganishwa na mtandao.",
+
+  "faqQ2": "Blockbusters inagharimu kiasi gani?",
+  "faqA2": "Blockbusters inatoa mipango tofauti kulingana na idadi ya skrini na ubora wa video. Bei huanza kutoka takribani $9.99 kwa mwezi, lakini zinaweza kutofautiana kulingana na eneo.",
+
+  "faqQ3": "Ninaweza kutazama wapi?",
+  "faqA3": "Unaweza kutazama Blockbusters kwenye simu janja, kompyuta kibao, TV janja, kompyuta na konsole za michezo zilizounganishwa na mtandao.",
+
+  "faqQ4": "Ninawezaje kughairi?",
+  "faqA4": "Unaweza kughairi usajili wako wa Blockbusters wakati wowote kupitia mipangilio ya akaunti yako. Hakuna ada ya kughairi.",
+
+  "faqQ5": "Ninaweza kutazama nini kwenye Blockbusters?",
+  "faqA5": "Blockbusters inatoa aina mbalimbali za filamu.",
+
+  "faqQ6": "Blockbusters ni nzuri kwa watoto?",
+  "faqA6": "Ndiyo, Blockbusters ina wasifu maalum wa watoto unaozuia maudhui na kutoa uzoefu salama zaidi."
+}

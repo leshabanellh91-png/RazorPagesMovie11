@@ -1,9 +1,42 @@
 {
+  "welcome": "Bem-vindo ao Blockbusters!",
   "home": "Início",
+  "aboutUs": "Sobre Nós",
   "login": "Entrar",
   "logout": "Sair",
-  "register": "Registrar",
-  "bookings": "Reservas",
-  "about": "Sobre nós",
-  "welcome": "Bem-vindo ao nosso site de filmes"
+  "register": "Registrar-se",
+
+  "moreReasonsTitle": "Mais Razões para se Juntar",
+
+  "reason1Title": "Aproveite na sua TV",
+  "reason1Desc": "Assista em Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, leitores de Blu-ray e muito mais.",
+
+  "reason2Title": "Baixe seus programas",
+  "reason2Desc": "Salve seus favoritos facilmente e assista offline a qualquer momento.",
+
+  "reason3Title": "Assista em qualquer lugar",
+  "reason3Desc": "Transmita filmes ilimitados no seu telefone, tablet, laptop e TV.",
+
+  "reason4Title": "Crie perfis para crianças",
+  "reason4Desc": "Envie as crianças para aventuras com seus personagens favoritos em um espaço feito só para elas — grátis com sua assinatura.",
+
+  "faqTitle": "Perguntas Frequentes",
+
+  "faqQ1": "O que é o Blockbusters?",
+  "faqA1": "Blockbusters é um serviço de streaming por assinatura que permite assistir a uma grande variedade de filmes em dispositivos conectados à internet.",
+
+  "faqQ2": "Quanto custa o Blockbusters?",
+  "faqA2": "O Blockbusters oferece vários planos, dependendo do número de telas e da qualidade do vídeo. Os preços geralmente começam em cerca de R$9,99 por mês, podendo variar por região.",
+
+  "faqQ3": "Onde posso assistir?",
+  "faqA3": "Você pode assistir ao Blockbusters em smartphones, tablets, smart TVs, computadores e consoles de videogame com conexão à internet.",
+
+  "faqQ4": "Como cancelo?",
+  "faqA4": "Você pode cancelar sua assinatura do Blockbusters a qualquer momento nas configurações da sua conta. Não há taxas de cancelamento.",
+
+  "faqQ5": "O que posso assistir no Blockbusters?",
+  "faqA5": "O Blockbusters oferece uma grande variedade de filmes.",
+
+  "faqQ6": "O Blockbusters é bom para crianças?",
+  "faqA6": "Sim, o Blockbusters possui um perfil infantil que restringe conteúdos e oferece uma experiência mais segura."
 }

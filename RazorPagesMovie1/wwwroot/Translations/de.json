@@ -1,9 +1,42 @@
 {
+  "welcome": "Willkommen bei Blockbusters!",
   "home": "Startseite",
+  "aboutUs": "Über uns",
   "login": "Anmelden",
   "logout": "Abmelden",
   "register": "Registrieren",
-  "bookings": "Buchungen",
-  "about": "Über uns",
-  "welcome": "Willkommen auf unserer Filmseite"
+
+  "moreReasonsTitle": "Weitere Gründe zum Beitreten",
+
+  "reason1Title": "Genießen Sie auf Ihrem TV",
+  "reason1Desc": "Sehen Sie auf Smart-TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray-Playern und mehr.",
+
+  "reason2Title": "Laden Sie Ihre Shows herunter",
+  "reason2Desc": "Speichern Sie Ihre Favoriten ganz einfach und sehen Sie sie jederzeit offline.",
+
+  "reason3Title": "Überall sehen",
+  "reason3Desc": "Streamen Sie unbegrenzt Filme auf Ihrem Telefon, Tablet, Laptop und TV.",
+
+  "reason4Title": "Erstellen Sie Profile für Kinder",
+  "reason4Desc": "Schicken Sie Kinder auf Abenteuer mit ihren Lieblingscharakteren in einem Raum, der nur für sie gemacht ist — kostenlos mit Ihrer Mitgliedschaft.",
+
+  "faqTitle": "Häufig Gestellte Fragen",
+
+  "faqQ1": "Was ist Blockbusters?",
+  "faqA1": "Blockbusters ist ein abonnementbasierter Streamingdienst, der es dir ermöglicht, eine große Auswahl an Filmen auf internetfähigen Geräten anzusehen.",
+
+  "faqQ2": "Wie viel kostet Blockbusters?",
+  "faqA2": "Blockbusters bietet verschiedene Pläne basierend auf der Anzahl der Bildschirme und der Videoqualität an. Die Preise beginnen bei etwa 9,99 $ pro Monat, können jedoch je nach Region variieren.",
+
+  "faqQ3": "Wo kann ich Blockbusters ansehen?",
+  "faqA3": "Du kannst Blockbusters auf Smartphones, Tablets, Smart-TVs, Computern und Spielkonsolen mit Internetverbindung ansehen.",
+
+  "faqQ4": "Wie kündige ich?",
+  "faqA4": "Du kannst dein Blockbusters-Abonnement jederzeit in deinen Kontoeinstellungen kündigen. Es gibt keine Kündigungsgebühren.",
+
+  "faqQ5": "Was kann ich auf Blockbusters sehen?",
+  "faqA5": "Blockbusters bietet eine große Auswahl an Filmen.",
+
+  "faqQ6": "Ist Blockbusters gut für Kinder?",
+  "faqA6": "Ja, Blockbusters verfügt über ein Kinderprofil, das Inhalte einschränkt und ein sichereres Seherlebnis bietet."
 }

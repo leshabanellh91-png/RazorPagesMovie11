@@ -1,10 +1,42 @@
 {
-  "home": "홈",
-  "login": "로그인",
-  "logout": "로그아웃",
-  "register": "회원가입",
-  "bookings": "예약",
-  "about": "회사 소개",
-  "movies": "영화",
-  "brand": "Blockbusters"
+  "welcome": "Blockbusters'a Hoş Geldiniz!",
+  "home": "Ana Sayfa",
+  "aboutUs": "Hakkımızda",
+  "login": "Giriş Yap",
+  "logout": "Çıkış Yap",
+  "register": "Kayıt Ol",
+
+  "moreReasonsTitle": "Katılmanız İçin Daha Fazla Sebep",
+
+  "reason1Title": "Televizyonunuzda keyfini çıkarın",
+  "reason1Desc": "Smart TV’ler, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray oynatıcılar ve daha fazlasında izleyin.",
+
+  "reason2Title": "Gösterilerinizi indirin",
+  "reason2Desc": "Favorilerinizi kolayca kaydedin ve istediğiniz zaman çevrimdışı izleyin.",
+
+  "reason3Title": "Her yerde izleyin",
+  "reason3Desc": "Filmleri telefonunuzda, tabletinizde, dizüstü bilgisayarınızda ve TV’nizde sınırsız olarak yayınlayın.",
+
+  "reason4Title": "Çocuklar için profiller oluşturun",
+  "reason4Desc": "Çocukları en sevdikleri karakterlerle maceralara gönderin, sadece onlar için hazırlanmış bir alanda — üyeliğinizle ücretsiz.",
+
+  "faqTitle": "Sıkça Sorulan Sorular",
+
+  "faqQ1": "Blockbusters nedir?",
+  "faqA1": "Blockbusters, internete bağlı cihazlarda çok çeşitli filmler izlemenizi sağlayan abonelik tabanlı bir yayın hizmetidir.",
+
+  "faqQ2": "Blockbusters ne kadar?",
+  "faqA2": "Blockbusters, ekran sayısına ve video kalitesine göre farklı planlar sunar. Fiyatlar genellikle aylık 9.99$’dan başlar ve bölgeye göre değişebilir.",
+
+  "faqQ3": "Nerede izleyebilirim?",
+  "faqA3": "Blockbusters'ı akıllı telefonlarda, tabletlerde, akıllı televizyonlarda, bilgisayarlarda ve internet bağlantılı oyun konsollarında izleyebilirsiniz.",
+
+  "faqQ4": "Nasıl iptal ederim?",
+  "faqA4": "Blockbusters aboneliğinizi hesap ayarlarınızdan istediğiniz zaman iptal edebilirsiniz. İptal ücreti yoktur.",
+
+  "faqQ5": "Blockbusters’ta ne izleyebilirim?",
+  "faqA5": "Blockbusters geniş bir film yelpazesi sunar.",
+
+  "faqQ6": "Blockbusters çocuklar için uygun mu?",
+  "faqA6": "Evet, Blockbusters çocuklara özel bir profil sunar ve daha güvenli bir izleme deneyimi sağlar."
 }

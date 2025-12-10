@@ -1,10 +1,42 @@
 {
+  "welcome": "Benvenuto a Blockbusters!",
   "home": "Home",
+  "aboutUs": "Chi Siamo",
   "login": "Accedi",
   "logout": "Esci",
   "register": "Registrati",
-  "bookings": "Prenotazioni",
-  "about": "Chi siamo",
-  "movies": "Film",
-  "brand": "Blockbusters"
+
+  "moreReasonsTitle": "Altri motivi per iscriversi",
+
+  "reason1Title": "Goditi sulla tua TV",
+  "reason1Desc": "Guarda su Smart TV, PlayStation, Xbox, Chromecast, Apple TV, lettori Blu-ray e altro ancora.",
+
+  "reason2Title": "Scarica i tuoi programmi",
+  "reason2Desc": "Salva facilmente i tuoi preferiti e guardali offline in qualsiasi momento.",
+
+  "reason3Title": "Guarda ovunque",
+  "reason3Desc": "Streaming illimitato di film sul tuo telefono, tablet, laptop e TV.",
+
+  "reason4Title": "Crea profili per bambini",
+  "reason4Desc": "Invia i bambini all’avventura con i loro personaggi preferiti in uno spazio creato apposta per loro — gratis con la tua iscrizione.",
+
+  "faqTitle": "Domande Frequenti",
+
+  "faqQ1": "Che cos'è Blockbusters?",
+  "faqA1": "Blockbusters è un servizio di streaming in abbonamento che ti permette di guardare una vasta gamma di film su dispositivi connessi a Internet.",
+
+  "faqQ2": "Quanto costa Blockbusters?",
+  "faqA2": "Blockbusters offre diversi piani a seconda del numero di schermi e della qualità video. I prezzi partono da circa €9,99 al mese, ma possono variare in base alla regione.",
+
+  "faqQ3": "Dove posso guardare?",
+  "faqA3": "Puoi guardare Blockbusters su smartphone, tablet, smart TV, computer e console di gioco con connessione a Internet.",
+
+  "faqQ4": "Come posso annullare?",
+  "faqA4": "Puoi annullare l'abbonamento a Blockbusters in qualsiasi momento dalle impostazioni del tuo account. Non ci sono costi di cancellazione.",
+
+  "faqQ5": "Cosa posso guardare su Blockbusters?",
+  "faqA5": "Blockbusters offre una vasta gamma di film.",
+
+  "faqQ6": "Blockbusters è adatto ai bambini?",
+  "faqA6": "Sì, Blockbusters dispone di un profilo bambini che limita i contenuti e offre un’esperienza più sicura."
 }
