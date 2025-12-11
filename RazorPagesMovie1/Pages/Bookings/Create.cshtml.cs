@@ -43,15 +43,19 @@ namespace RazorPagesMovie1.Pages.Bookings
         {
             if (!ModelState.IsValid)
             {
-                // Repopulate dropdown if validation fails
-                ViewData["MovieId"] = new SelectList(_context.Movie, "Id", "Title");
+                TempData["Message"] = "Booking failed. Please check your details.";
+                TempData["MessageType"] = "error";
                 return Page();
             }
 
             _context.Bookings.Add(Booking);
             await _context.SaveChangesAsync();
 
+            TempData["Message"] = "Your booking was successful!";
+            TempData["MessageType"] = "success";
+
             return RedirectToPage("./Index");
         }
+
     }
 }
