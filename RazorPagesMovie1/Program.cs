@@ -29,18 +29,13 @@ builder.Services.AddAuthorization(options =>
 });
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
-
-{ 
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 8;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireLowercase = false;
-    options.SignIn.RequireConfirmedPhoneNumber = false;
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
     options.SignIn.RequireConfirmedAccount = false;
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
+
 
 
 var app = builder.Build();
@@ -76,9 +71,50 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Correct: Razor Pages mapping comes last
 app.MapRazorPages();
+
+async Task CreateAdminRole(IServiceProvider serviceProvider)
+{
+    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+    // 1. Create Admin role
+    if (!await roleManager.RoleExistsAsync("Admin"))
+    {
+        await roleManager.CreateAsync(new IdentityRole("Admin"));
+    }
+
+    // 2. Create Admin user
+    string adminEmail = "admin@movies.com";
+    string adminPassword = "Admin123!"; // You can change this
+
+    var adminUser = await userManager.FindByEmailAsync(adminEmail);
+
+    if (adminUser == null)
+    {
+        adminUser = new IdentityUser
+        {
+            UserName = adminEmail,
+            Email = adminEmail
+        };
+
+        await userManager.CreateAsync(adminUser, adminPassword);
+    }
+
+    // 3. Add user to Admin role
+    if (!await userManager.IsInRoleAsync(adminUser, "Admin"))
+    {
+        await userManager.AddToRoleAsync(adminUser, "Admin");
+    }
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    await CreateAdminRole(scope.ServiceProvider);
+}
 
 app.Run();
