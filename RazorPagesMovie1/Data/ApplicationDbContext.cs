@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RazorPagesMovie1.Models;
 
 namespace RazorPagesMovie1.Data
 {
@@ -10,6 +11,10 @@ namespace RazorPagesMovie1.Data
         {
         }
 
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<SiteSetting> SiteSettings { get; set; }
+        public DbSet<Actor> Actors { get; set; }
+       
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -19,7 +24,8 @@ namespace RazorPagesMovie1.Data
             {
                 if (entity.ClrType.Namespace != "Microsoft.AspNetCore.Identity")
                 {
-                    builder.Model.RemoveEntityType(entity);
+                  
+
                 }
             }
         }

@@ -1,0 +1,13 @@
+﻿@page
+@model DeleteUserModel
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<h2>Delete User @Model.UserToDelete.Email?</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="UserId" value="@Model.UserToDelete.Id" />
+    <button type="submit">Yes, Delete</button>
+    <a asp-page="/Admin/Users">Cancel</a>
+</form>

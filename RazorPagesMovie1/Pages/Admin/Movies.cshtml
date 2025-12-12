@@ -1,0 +1,34 @@
+﻿@page
+@model RazorPageMovies.Pages.Admin.MoviesModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Movies Management";
+}
+
+<h2>Movies Management</h2>
+<a class="btn btn-success mb-3" asp-page="/Admin/AddMovie">Add Movie</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model.Movies)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.Genre</td>
+                <td>@movie.Year</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="/Admin/EditMovie" asp-route-id="@movie.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-page="/Admin/DeleteMovie" asp-route-id="@movie.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
