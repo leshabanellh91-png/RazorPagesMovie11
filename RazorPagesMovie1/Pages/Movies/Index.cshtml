@@ -71,7 +71,7 @@
                 <div class="card movie-card shadow-sm h-100 position-relative">
 
                     <!-- Movie Image -->
-                    <img src="@(!string.IsNullOrEmpty(item.ImageUrl) ? $"~/images/{item.ImageUrl}" : "/images/placeholder.png")"
+                    <img src="@(item.ImageUrl ?? "/images/placeholder.png")"
                          class="card-img-top movie-img"
                          alt="@item.Title" />
 
