@@ -21,5 +21,8 @@ namespace RazorPagesMovie1.Models
 
         [StringLength(100)]
         public string Nationality { get; set; } = string.Empty;
+        public string Name { get; set; }
+        public ICollection<Movie> Movies { get; set; }
+
     }
 }

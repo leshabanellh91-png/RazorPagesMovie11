@@ -1,0 +1,22 @@
+﻿@page
+@model EditUserRolesModel
+@{
+    ViewData["Title"] = "Edit User Roles";
+}
+
+<h2>Edit Roles for @Model.UserToEdit.Email</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="UserId" value="@Model.UserToEdit.Id" />
+
+    @foreach (var role in Model.AllRoles)
+    {
+        <div>
+            <input type="checkbox" name="SelectedRoles" value="@role"
+                   @(Model.SelectedRoles.Contains(role) ? "checked" : "") />
+            <label>@role</label>
+        </div>
+    }
+
+    <button type="submit">Save Roles</button>
+</form>

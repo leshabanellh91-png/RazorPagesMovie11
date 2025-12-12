@@ -1,0 +1,32 @@
+﻿@page
+@model RazorPageMovies.Pages.Admin.UsersModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "User Management";
+}
+
+<h2>User Management</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model.Users)
+        {
+            <tr>
+                <td>@u.User.Email</td>
+                <td>@string.Join(", ", u.Roles)</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-page="/Admin/EditUserRoles" asp-route-id="@u.User.Id">Edit Roles</a>
+                    <a class="btn btn-danger btn-sm" asp-page="/Admin/DeleteUser" asp-route-id="@u.User.Id">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
